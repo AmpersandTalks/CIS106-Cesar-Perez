@@ -1,0 +1,13 @@
+Function Main
+    Output "Take Out two Bread slices"
+    Output "Take out penut butter and jelly jars from the cabinet"
+    Output "Take out butter knife from kitchen drawer"
+    Output "Open penut butter jar"
+    Output "Use knife to scoop Peanut butter"
+    Output "Apply penut butter to one bread slice using the butter knife"
+    Output "Rinse butter knife on kitchen sink"
+    Output "Open jelly jar"
+    Output "Use knife to scoop Jelly"
+    Output "Apply jelly to other bread slice using the butter knife"
+    Output "Put both bread slices together"
+End

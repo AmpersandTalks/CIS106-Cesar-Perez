@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="TerryUchiha"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-01-20 10:41:24 PM"/>
+        <attribute name="created" value="VGVycnlVY2hpaGE7QU1QRVJTQU5EOzIwMTktMDgtMjI7MDQ6MTE6MDggUE07MzA3Nw=="/>
+        <attribute name="edited" value="VGVycnlVY2hpaGE7QU1QRVJTQU5EOzIwMTktMDgtMjU7MDc6MjA6MDYgUE07MzszMTkx"/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTAxLTIwOzEwOjQxOjI0IFBNOzI7MzE3Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Take Out two Bread slices&quot;" newline="True"/>
+            <output expression="&quot;Take out penut butter and jelly jars from the cabinet&quot;" newline="True"/>
+            <output expression="&quot;Take out butter knife from kitchen drawer&quot;" newline="True"/>
+            <output expression="&quot;Open penut butter jar&quot;" newline="True"/>
+            <output expression="&quot;Use knife to scoop Peanut butter&quot;" newline="True"/>
+            <output expression="&quot;Apply penut butter to one bread slice using the butter knife&quot;" newline="True"/>
+            <output expression="&quot;Rinse butter knife on kitchen sink&quot;" newline="True"/>
+            <output expression="&quot;Open jelly jar&quot;" newline="True"/>
+            <output expression="&quot;Use knife to scoop Jelly&quot;" newline="True"/>
+            <output expression="&quot;Apply jelly to other bread slice using the butter knife&quot;" newline="True"/>
+            <output expression="&quot;Put both bread slices together&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
