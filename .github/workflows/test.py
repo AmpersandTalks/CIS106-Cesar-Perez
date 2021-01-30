@@ -520,6 +520,39 @@ def check_git_log(assignment, pattern, message):
         assert False, exception
 
 
+def check_javascript_formatting(assignment, activity):
+    path = get_path(assignment)
+    if not path:
+        pytest.skip()
+        return
+
+    filename = get_filename(path, activity + r"\.fprg")
+    if filename:
+        pytest.skip()
+        return
+
+    filename = get_filename(path, activity + r"\.js")
+    if not filename:
+        pytest.skip()
+        return
+
+    try:
+        args = "npx eslint --no-eslintrc " + \
+            os.path.join(path, filename).replace(" ", "\\ ")
+        output = subprocess.check_output(
+            args,
+            shell=True,
+            stderr=subprocess.PIPE,
+            text=True)
+    except subprocess.CalledProcessError as exception:
+        output = exception.output
+        output = output.replace(path + "/", "")
+
+        assert not output, \
+            f"{assignment} {activity} " \
+            f"JavaScript source code formatting:\n{output}\n"
+
+
 def check_javascript_output(assignment, activity, file_pattern,
     input, output_pattern, message):
 
@@ -789,7 +822,7 @@ def check_source_code_formatting(assignment, activity):
     elif ".java" in filename:
         assert False, "Not implemented"
     elif ".js" in filename:
-        assert False, "Not implemented"
+        check_javascript_formatting(assignment, activity)
     elif ".lua" in filename:
         assert False, "Not implemented"
     elif ".py" in filename:
@@ -1101,6 +1134,24 @@ def check_source_code_output(assignment, activity, file_pattern,
         f"Output:\n{output}"
 
 
+def compile_java_program(path, filename):
+    args = "javac " + \
+        os.path.join(path, filename).replace(" ", "\\ ")
+    try:
+        output = subprocess.check_output(
+            args,
+            shell=True,
+            stderr=subprocess.PIPE,
+            text=True)
+        output_cache(path, filename, input, output)
+        print(output)
+        return
+    except subprocess.CalledProcessError as exception:
+        output_cache(path, filename, input,
+            f"{exception.output}\n"
+            f"{exception.stderr}")
+
+
 def get_csharp_functions(text):
     pattern = r"(public|private) static (.+?) (.+?) *\((.*?)\)"
     matches = []
@@ -1204,7 +1255,34 @@ def get_filename(path, pattern):
 
 
 def get_java_output(assignment, activity, input):
-    assert False, "Not implemented"
+    path = get_path(assignment)
+    if not path:
+        return None
+
+    filename = get_filename(path, activity + r"\.java")
+    if not filename:
+        return None
+
+    output = output_cache(path, filename, input)
+    if output is None:
+        compile_java_program(path, filename)
+        args = "java -cp " + path + " " + \
+            filename.replace(".java", "").replace(" ", "\\ ")
+        print(args)
+        try:
+            output = subprocess.check_output(
+                args,
+                input=input,
+                shell=True,
+                stderr=subprocess.PIPE,
+                text=True)
+            output_cache(path, filename, input, output)
+        except subprocess.CalledProcessError as exception:
+            output_cache(path, filename, input,
+                f"{exception.output}\n"
+                f"{exception.stderr}")
+
+    return output
 
 
 def get_javascript_output(assignment, activity, input):
@@ -1363,5 +1441,4 @@ def read_file(path, filename):
 
 
 if __name__ == "__main__":
-    result = check_source_code_formatting("Assignment 5", "Activity 2")
-    print(result)
+    result = check_javascript_formatting("Assignment 2", "Activity 2")

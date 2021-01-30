@@ -1,22 +1,33 @@
-# CIS 106 Python Tests
+# CIS 106 JavaScript Tests
 #
 # References:
 #   https://docs.github.com/en/free-pro-team@latest/actions
 #   https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python
+#   https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs
 
-name: CIS 106 Python Tests
+name: CIS 106 JavaScript Tests
 
 on: [push]
 
 jobs:
   build:
-    name: Run CIS 106 Python Tests
+    name: Run CIS 106 JavaScript Tests
     runs-on: ubuntu-latest
     
     steps:
     - name: Copy repository
       uses: actions/checkout@v2
     
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Node.js packages
+      run: |
+        npm install
+        npm install eslint
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -24,15 +35,10 @@ jobs:
 
     - name: Install Python packages
       run: |
-        # install flake8, pytest, and any requirements.txt 
+        # install pytest and any requirements.txt 
         python -m pip install --upgrade pip
-        pip install flake8 pytest
+        pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --select=E9,F63,F7,F82 --show-source --statistics
 
     - name: Test with pytest
       run: |
