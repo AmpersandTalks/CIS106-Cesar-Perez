@@ -52,7 +52,7 @@ def test_assignment_6_activity_1_input_labels():
         "Activity 1",
         "",
         "10\n15\n",
-        "hours.*?\n?.*?rate",
+        "hours.*?\n?.*?(rate|per hour)",
         "Input label(s) missing or incorrect. "
             "Expecting hours and rate.")
 
@@ -487,7 +487,7 @@ def test_assignment_6_activity_4_triangle_area_output():
     test.check_source_code_output(
         "Assignment 6",
         "Activity 4",
-        "rectangle",
+        "triangle",
         "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n",
         "0.5",
         "triangle area calculation output is incorrect. "
@@ -885,7 +885,7 @@ def test_assignment_6_activity_7_input_labels():
         "Activity 7",
         "",
         "Rover\n2\n",
-        "name.*?\n?.*?age|name.*?\n?.*?old",
+        "name.*?\n?.*?(age|years|old)",
         "input label(s) missing or incorrect. "
             "Expecting name and age.")
 
