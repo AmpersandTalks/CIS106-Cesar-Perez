@@ -914,7 +914,7 @@ def test_assignment_3_activity_5_input_labels():
         "Assignment 3",
         "Activity 5",
         "",
-        "10\n10\n",
+        "12\n10\n",
         "length.*?\n?.*?width",
         "input label(s) missing or incorrect. "
             "Expecting length and width.")
@@ -925,16 +925,16 @@ def test_assignment_3_activity_5_area_output():
         "Assignment 3",
         "Activity 5",
         "",
-        "10\n10\n",
-        r"11\.11",
+        "12\n10\n",
+        r"13\.33",
         "area calculation output is incorrect.")
 
     test.check_source_code_output(
         "Assignment 3",
         "Activity 5",
         "",
-        "10.5\n10.5\n",
-        "12.25",
+        "12.5\n10.5\n",
+        "14.58",
         "area calculation output is incorrect.")
 
     test.check_source_code_output(

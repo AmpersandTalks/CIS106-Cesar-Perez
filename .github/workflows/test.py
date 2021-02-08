@@ -1169,7 +1169,9 @@ def check_source_code_operator_formatting(assignment, activity):
 
     text = read_file(path, filename)
 
-    if ".py" in filename:
+    if ".lua" in filename:
+        text = re.sub(r"\-\-.*?\n", "\n", text)
+    elif ".py" in filename:
         text = re.sub("#.*?\n", "\n", text)
         text = re.sub(r"\*\*", "", text)
     else:
@@ -1357,8 +1359,7 @@ def get_files(path, pattern):
 
 
 def get_filename(path, pattern):
-    pattern = pattern.replace(" ", "( *|_)")
-    pattern = pattern.replace(r"\d", r"#?\d")
+    pattern = pattern.replace(" ", "[ _]?#?")
     pattern = "^" + pattern + "$"
     regex = re.compile(pattern, re.IGNORECASE)
     with os.scandir(path) as iterator:
@@ -1611,4 +1612,4 @@ def read_file(path, filename):
 
 
 if __name__ == "__main__":
-    check_flowgorithm_functions("Assignment 7", "Activity 2", 2, 4, 1)
+    pass
