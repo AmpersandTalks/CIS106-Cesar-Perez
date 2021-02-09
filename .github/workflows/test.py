@@ -559,6 +559,26 @@ def check_git_log(assignment, pattern, message):
         assert False, exception
 
 
+def check_java_class(path, filename):
+    try:
+        with open(os.path.join(path, filename), "r") as file:
+            text = file.read()
+
+        pattern = "public class (.+?) {"
+        match = re.search(pattern, text)
+        assert match, \
+            f"{filename} could not find public class name"
+
+        class_name = \
+            filename.replace(".java", "").replace("\\", "").replace(" ", "")
+        text = text.replace(match.group(0), f"public class {class_name} " + "{")
+
+        with open(os.path.join(path, filename), "w") as file:
+            file.write(text)
+    except Exception as exception:
+        assert False, exception
+
+
 def check_javascript_formatting(assignment, activity):
     path = get_path(assignment)
     if not path:
@@ -722,7 +742,7 @@ def check_python_formatting(assignment, activity):
 
     try:
         args = "flake8 " + \
-            "--ignore=E125,E127,E128,E131,E722,W292,W293,W504 " + \
+            "--ignore=E125,E127,E128,E131,E722,W291,W292,W293,W504 " + \
             os.path.join(path, filename).replace(" ", "\\ ")
         output = subprocess.check_output(
             args,
@@ -1133,9 +1153,9 @@ def check_source_code_inputs(assignment, activity, count):
     text = read_file(path, filename)
 
     if ".cs" in filename:
-        pattern = r"Console\.Readline\(|readValue\("
+        pattern = r"Console\.ReadLine\(|readValue\("
     elif ".java" in filename:
-        assert False, "Not implemented"
+        pattern = r"input\."
     elif ".js" in filename:
         pattern = r"prompt\("
     elif ".lua" in filename:
@@ -1169,7 +1189,10 @@ def check_source_code_operator_formatting(assignment, activity):
 
     text = read_file(path, filename)
 
-    if ".lua" in filename:
+    if ".java" in filename:
+        text = re.sub("import .+?;\n", "", text)
+        text = re.sub(r"\/\/.*?\n", "\n", text)
+    elif ".lua" in filename:
         text = re.sub(r"\-\-.*?\n", "\n", text)
     elif ".py" in filename:
         text = re.sub("#.*?\n", "\n", text)
@@ -1179,6 +1202,12 @@ def check_source_code_operator_formatting(assignment, activity):
 
     pattern = r"\S[+\-\*\/=]\S|\S[+\-\*\/=]\s|\s[+\-\*\/=]\S"
     matches = re.findall(pattern, text)
+    matches = sorted(list(set(matches)))
+
+    pattern = r"[+\-\*\/!=]=|===|!=="
+    for index in range(len(matches) - 1, -1, -1):
+        if re.search(pattern, matches[index]):
+            matches.remove(matches[index])
 
     assert len(matches) == 0, \
         f"{assignment} {filename} " \
@@ -1414,6 +1443,8 @@ def get_java_output(assignment, activity, input):
     if not filename:
         return None
 
+    check_java_class(path, filename)
+    
     output = output_cache(path, filename, input)
     if output is None:
         compile_java_program(path, filename)
