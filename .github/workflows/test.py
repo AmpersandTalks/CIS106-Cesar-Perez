@@ -1188,6 +1188,8 @@ def check_source_code_operator_formatting(assignment, activity):
         return
 
     text = read_file(path, filename)
+    text = re.sub(r'".+?"', '""', text)
+    text = re.sub(r"'.+?'", "''", text)
 
     if ".java" in filename:
         text = re.sub("import .+?;\n", "", text)
