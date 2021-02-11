@@ -3,16 +3,16 @@ function main() {
     var years;
     var months;
     var days;
-    var minutes;
+    var hours;
     var seconds;
     
     window.alert("How old are you?");
     years = window.prompt('Enter a value for years');
     months = years * 12;
     days = years * 365;
-    minutes = years * 525600;
+    hours = years * 8760;
     seconds = years * 31536000;
-    window.alert(months.toString() + " months " + days + " days " + minutes + " minutes " + seconds + " seconds ");
+    window.alert(months.toString() + " months " + days + " days " + hours + " hours " + seconds + " seconds ");
 }
 
 if (typeof alert === "undefined") {
