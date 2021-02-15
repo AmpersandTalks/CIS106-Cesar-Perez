@@ -52,7 +52,7 @@ def test_assignment_6_activity_1_input_labels():
         "Activity 1",
         "",
         "10\n15\n",
-        "hours.*?\n?.*?(rate|per hour)",
+        "hours.*?\n?.*?(rate|per hour|hourly)",
         "Input label(s) missing or incorrect. "
             "Expecting hours and rate.")
 

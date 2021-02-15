@@ -195,7 +195,7 @@ def check_flowgorithm_functions(assignment, activity,
     processing_functions = []
     output_functions = []
     for function in functions:
-        if function["name"] == "Main":
+        if function["type"] == "main":
             main_functions.append(function["name"])
         elif function["type"] == "input":
             input_functions.append(function["name"])
@@ -957,13 +957,13 @@ def check_source_code_formatting(assignment, activity):
         return
 
     if ".cs" in filename:
-        assert False, "Not implemented"
+        pass
     elif ".java" in filename:
-        assert False, "Not implemented"
+        pass
     elif ".js" in filename:
         check_javascript_formatting(assignment, activity)
     elif ".lua" in filename:
-        assert False, "Not implemented"
+        pass
     elif ".py" in filename:
         check_python_formatting(assignment, activity)
     else:
@@ -988,13 +988,13 @@ def check_source_code_functions(assignment, activity,
         return
 
     if ".cs" in filename:
-        assert False, "Not implemented"
+        functions = get_csharp_functions(path, filename)
     elif ".java" in filename:
-        assert False, "Not implemented"
+        functions = get_java_functions(path, filename)
     elif ".js" in filename:
-        assert False, "Not implemented"
+        functions = get_javascript_functions(path, filename)
     elif ".lua" in filename:
-        assert False, "Not implemented"
+        functions = get_lua_functions(path, filename)
     elif ".py" in filename:
         functions = get_python_functions(path, filename)
     else:
@@ -1007,7 +1007,7 @@ def check_source_code_functions(assignment, activity,
     output_functions = []
     main_functions = []
     for function in functions:
-        if function["name"] == "main":
+        if function["type"] == "main":
             main_functions.append(function["name"])
         elif function["type"] == "input":
             input_functions.append(function["name"])
@@ -1099,8 +1099,8 @@ def check_source_code_identifier_length(assignment, activity):
 
     text = read_file(path, filename)
 
-    pattern = r"(\w+) *="
-    matches = re.findall(pattern, text)
+    pattern = r"^\s*(\w+) *="
+    matches = re.findall(pattern, text, flags=re.MULTILINE)
     variables = []
     for match in matches:
         if len(match) == 1:
@@ -1137,6 +1137,14 @@ def check_source_code_line_spacing(assignment, activity):
         f"{assignment} {filename} " \
         "should include a blank line between logical parts of the code. " \
         "Separate comments, input, processing, and output with a blank line."
+
+    pattern = r"\n.+?\n.+?\n"
+    matches = re.findall(pattern, text, flags=re.MULTILINE)
+    assert len(matches) > 0, \
+        f"{assignment} {filename} " \
+        "should include a blank line between logical parts of the code. " \
+        "Separate comments, input, processing, and output " \
+        "with a blank line. Avoid double-spacing every line."
 
 
 def check_source_code_inputs(assignment, activity, count):
@@ -1206,7 +1214,7 @@ def check_source_code_operator_formatting(assignment, activity):
     matches = re.findall(pattern, text)
     matches = sorted(list(set(matches)))
 
-    pattern = r"[+\-\*\/!=]=|===|!=="
+    pattern = r"\+=|-=|\*=|\/=|<=|>=|==|!=|===|!=="
     for index in range(len(matches) - 1, -1, -1):
         if re.search(pattern, matches[index]):
             matches.remove(matches[index])
@@ -1300,8 +1308,10 @@ def compile_java_program(path, filename):
             f"{exception.stderr}")
 
 
-def get_csharp_functions(text):
-    pattern = r"(public|private) static (.+?) (.+?) *\((.*?)\)"
+def get_csharp_functions(path, filename):
+    text = read_file(path, filename)
+
+    pattern = r"(public|private) static (.+?) (.+?) *\((.*?)\)\s*\{"
     matches = []
     for match in re.finditer(pattern, text, re.MULTILINE):
         matches.append(match)
@@ -1311,7 +1321,10 @@ def get_csharp_functions(text):
         match = matches[index]
         function = {}
         function["name"] = match.group(3)
-        function["type"] = match.group(2)
+        if match.group(2) == "void":
+            function["returns"] = None
+        else:
+            function["returns"] = match.group(2)
         function["parameters"] = match.group(4)
         if index < len(matches) - 1:
             next_match = matches[index + 1]
@@ -1325,6 +1338,16 @@ def get_csharp_functions(text):
         function_text = re.sub("}.+?$", "", function_text, flags=re.DOTALL)
         function["text"] = function_text
         functions.append(function)
+
+    for function in functions:
+        if function["name"] == "Main":
+            function["type"] = "main"
+        elif "Console.Read" in function["text"]:
+            function["type"] = "input"
+        elif "Console.Write" in function["text"]:
+            function["type"] = "output"
+        else:
+            function["type"] = "processing"
 
     return functions
 
@@ -1436,6 +1459,50 @@ def get_flowgorithm_functions(path, filename):
     return functions
 
 
+def get_java_functions(path, filename):
+    text = read_file(path, filename)
+
+    pattern = r"(public|private) static (.+?) (.+?) *\((.*?)\)\s*\{"
+    matches = []
+    for match in re.finditer(pattern, text, re.MULTILINE):
+        matches.append(match)
+
+    functions = []
+    for index in range(len(matches)):
+        match = matches[index]
+        function = {}
+        function["name"] = match.group(3)
+        if match.group(2) == "void":
+            function["returns"] = None
+        else:
+            function["returns"] = match.group(2)
+        function["parameters"] = match.group(4)
+        if index < len(matches) - 1:
+            next_match = matches[index + 1]
+            function_text = \
+                text[match.start(0):next_match.start(0)].strip()
+        else:
+            function_text = text[match.start(0):].strip()
+            if function_text.count("}") > function_text.count("{"):
+                function_text = re.sub("}$", "", function_text).strip()
+
+        function_text = re.sub("}.+?$", "", function_text, flags=re.DOTALL)
+        function["text"] = function_text
+        functions.append(function)
+
+    for function in functions:
+        if function["name"] == "main":
+            function["type"] = "main"
+        elif "input." in function["text"]:
+            function["type"] = "input"
+        elif "System.out" in function["text"]:
+            function["type"] = "output"
+        else:
+            function["type"] = "processing"
+
+    return functions
+
+
 def get_java_output(assignment, activity, input):
     path = get_path(assignment)
     if not path:
@@ -1468,6 +1535,53 @@ def get_java_output(assignment, activity, input):
     return output
 
 
+def get_javascript_functions(path, filename):
+    text = read_file(path, filename)
+
+    pattern = r"function (.+?) *\((.*?)\)\s*\{"
+    matches = []
+    for match in re.finditer(pattern, text, re.MULTILINE):
+        matches.append(match)
+
+    functions = []
+    for index in range(len(matches)):
+        match = matches[index]
+        function = {}
+        function["name"] = match.group(1)
+        function["parameters"] = match.group(2)
+        if index < len(matches) - 1:
+            next_match = matches[index + 1]
+            function_text = \
+                text[match.start(0):next_match.start(0)].strip()
+        else:
+            function_text = text[match.start(0):].strip()
+            if function_text.count("}") > function_text.count("{"):
+                function_text = re.sub("}$", "", function_text).strip()
+
+        function_text = re.sub("}.+?$", "", function_text, flags=re.DOTALL)
+        function["text"] = function_text
+        functions.append(function)
+
+    pattern = r"return (\w+)"
+    for function in functions:
+        match = re.search(pattern, function["text"])
+        if match:
+            function["returns"] = match.group(1)
+        else:
+            function["returns"] = None
+
+        if function["name"] == "main":
+            function["type"] = "main"
+        elif "prompt" in function["text"]:
+            function["type"] = "input"
+        elif "alert" in function["text"]:
+            function["type"] = "output"
+        else:
+            function["type"] = "processing"
+
+    return functions
+
+
 def get_javascript_output(assignment, activity, input):
     path = get_path(assignment)
     if not path:
@@ -1497,6 +1611,50 @@ def get_javascript_output(assignment, activity, input):
                 f"{exception.stderr}")
 
     return output
+
+
+def get_lua_functions(path, filename):
+    text = read_file(path, filename)
+
+    pattern = r"function (.+?) *\((.*?)\)"
+    matches = []
+    for match in re.finditer(pattern, text, re.MULTILINE):
+        matches.append(match)
+
+    functions = []
+    for index in range(len(matches)):
+        match = matches[index]
+        function = {}
+        function["name"] = match.group(1)
+        function["parameters"] = match.group(2)
+        if index < len(matches) - 1:
+            next_match = matches[index + 1]
+            function_text = \
+                text[match.start(0):next_match.start(0)].strip()
+        else:
+            function_text = text[match.start(0):].strip()
+
+        function["text"] = function_text
+        functions.append(function)
+
+    pattern = r"return (\w+)"
+    for function in functions:
+        match = re.search(pattern, function["text"])
+        if match:
+            function["returns"] = match.group(1)
+        else:
+            function["returns"] = None
+
+        if function["name"] == "main":
+            function["type"] = "main"
+        elif "io.read" in function["text"]:
+            function["type"] = "input"
+        elif "print" in function["text"]:
+            function["type"] = "output"
+        else:
+            function["type"] = "processing"
+
+    return functions
 
 
 def get_lua_output(assignment, activity, input):
@@ -1562,23 +1720,21 @@ def get_python_functions(path, filename):
         functions.append(function)
 
     pattern = r"return (\w+)"
-    for index in range(len(functions)):
-        function = functions[index]
+    for function in functions:
         match = re.search(pattern, function["text"])
         if match:
             function["returns"] = match.group(1)
         else:
             function["returns"] = None
 
-        if "input(" in function["text"]:
+        if function["name"] == "main":
+            function["type"] = "main"
+        elif "input(" in function["text"]:
             function["type"] = "input"            
-            continue
-
-        if "print(" in function["text"]:
+        elif "print(" in function["text"]:
             function["type"] = "output"
-            continue
-
-        function["type"] = "processing"
+        else:
+            function["type"] = "processing"
 
     return functions
 
@@ -1645,4 +1801,8 @@ def read_file(path, filename):
 
 
 if __name__ == "__main__":
-    pass
+    path = os.getcwd()
+    filename = "example.lua"
+    functions = get_lua_functions(path, filename)
+    for function in functions:
+        print(function["name"], function["type"], function["returns"], function["parameters"])
