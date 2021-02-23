@@ -5,39 +5,27 @@
 //  https://en.wikibooks.org/wiki/JavaScript
 
 function main() {
-    var miles;
-    var yards;
-    var feet;
-    var inches;
+    let miles = getmiles();
+
+    let yards = calculateyards(miles);
+    let feet = calculatefeet(miles);
+    let inches = calculateinches(miles);
     
-    miles = getmiles();
-    yards = calculateyards(miles);
-    feet = calculatefeet(miles);
-    inches = calculateinches(miles);
     displayResult(yards, feet, inches);
 }
 
 function calculatefeet(miles) {
-    var feet;
-    
-    feet = miles * 5280;
-    
+    let feet = miles * 5280;
     return feet;
 }
 
 function calculateinches(miles) {
-    var inches;
-    
-    inches = miles * 63360;
-    
+    let inches = miles * 63360;
     return inches;
 }
 
 function calculateyards(miles) {
-    var yards;
-    
-    yards = miles * 1760;
-    
+    let yards = miles * 1760;    
     return yards;
 }
 
@@ -46,11 +34,8 @@ function displayResult(yards, feet, inches) {
 }
 
 function getmiles() {
-    var miles;
-    
     window.alert("Enter a value for miles");
-    miles = window.prompt('Enter a value for miles');
-    
+    let miles = window.prompt('Enter a value for miles');
     return miles;
 }
 
