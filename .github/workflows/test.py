@@ -619,7 +619,7 @@ def check_javascript_formatting(assignment, activity):
         return
 
     try:
-        args = "npx eslint --no-eslintrc " + \
+        args = "npx eslint --no-eslintrc --env \"es6\" " + \
             os.path.join(path, filename).replace(" ", "\\ ")
         output = subprocess.check_output(
             args,
@@ -1380,6 +1380,12 @@ def get_csharp_functions(path, filename):
         function["text"] = function_text
         functions.append(function)
 
+    pattern = r"^\s*(\w+\s*=\s*)?(\w+)\(.*?\)"
+    for function in functions:
+        matches = re.findall(pattern, function["text"], flags=re.MULTILINE)
+        calls = [match[1] for match in matches]
+        function["calls"] = ", ".join(calls)
+
     for function in functions:
         if function["name"] == "Main":
             function["type"] = "main"
@@ -1538,6 +1544,12 @@ def get_java_functions(path, filename):
         function["text"] = function_text
         functions.append(function)
 
+    pattern = r"^\s*(\w+\s*=\s*)?(\w+)\(.*?\)"
+    for function in functions:
+        matches = re.findall(pattern, function["text"], flags=re.MULTILINE)
+        calls = [match[1] for match in matches]
+        function["calls"] = ", ".join(calls)
+
     for function in functions:
         if function["name"] == "main":
             function["type"] = "main"
@@ -1610,6 +1622,12 @@ def get_javascript_functions(path, filename):
         function["text"] = function_text
         functions.append(function)
 
+    pattern = r"^\s*(\w+\s*=\s*)?(\w+)\(.*?\)"
+    for function in functions:
+        matches = re.findall(pattern, function["text"], flags=re.MULTILINE)
+        calls = [match[1] for match in matches]
+        function["calls"] = ", ".join(calls)
+
     pattern = r"return (\w+)"
     for function in functions:
         match = re.search(pattern, function["text"])
@@ -1618,6 +1636,7 @@ def get_javascript_functions(path, filename):
         else:
             function["returns"] = None
 
+    for function in functions:
         if function["name"] == "main":
             function["type"] = "main"
         elif "prompt" in function["text"]:
@@ -1685,6 +1704,12 @@ def get_lua_functions(path, filename):
         function["text"] = function_text
         functions.append(function)
 
+    pattern = r"^\s*(\w+\s*=\s*)?(\w+)\(.*?\)"
+    for function in functions:
+        matches = re.findall(pattern, function["text"], flags=re.MULTILINE)
+        calls = [match[1] for match in matches]
+        function["calls"] = ", ".join(calls)
+
     pattern = r"return (\w+)"
     for function in functions:
         match = re.search(pattern, function["text"])
@@ -1693,6 +1718,7 @@ def get_lua_functions(path, filename):
         else:
             function["returns"] = None
 
+    for function in functions:
         if function["name"] == "main":
             function["type"] = "main"
         elif "io.read" in function["text"]:
@@ -1767,7 +1793,7 @@ def get_python_functions(path, filename):
             function["text"] = text[match.start(0):].strip()
         functions.append(function)
 
-    pattern = r"^\s+(\w+\s*=\s*)?(\w+)\(.+?\)"
+    pattern = r"^\s*(\w+\s*=\s*)?(\w+)\(.*?\)"
     for function in functions:
         matches = re.findall(pattern, function["text"], flags=re.MULTILINE)
         calls = [match[1] for match in matches]
