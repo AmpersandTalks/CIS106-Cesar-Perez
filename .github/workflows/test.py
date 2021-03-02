@@ -776,9 +776,21 @@ def check_python_formatting(assignment, activity):
         output = exception.output
         output = output.replace(path + "/", "")
 
-        assert not output, \
-            f"{assignment} {activity} " \
-            f"Python source code formatting:\n{output}\n"
+    text = read_file(path, filename)
+
+    pattern = "\t"
+    match = re.search(pattern, text)
+    if match:
+        output = "Contains tab characters. Replace tabs with spaces.\n" + output
+
+    pattern = r"^ +main\(\)$"
+    match = re.search(pattern, text, re.MULTILINE)
+    if match:
+        output = "Call to main() must not be indented.\n" + output
+
+    assert not output, \
+        f"{assignment} {activity} " \
+        f"Python source code formatting:\n{output}\n"
 
 
 def check_python_output(assignment, activity, file_pattern,
@@ -927,6 +939,15 @@ def check_source_code_comments(assignment, activity, count,
     matches = re.findall(pattern, text, re.MULTILINE)
     assert len(matches) >= count, \
         f"{assignment} {filename} is missing comments."
+
+    # Commented out - currently checking Flowgorithm-generated code.
+    # if "|" not in file_extension:
+    #     return
+
+    # matches = re.findall(pattern, text)
+    # assert len(matches) >= count, \
+    #     f"{assignment} {filename} is missing comments " \
+    #         "at the top of the program."
 
 
 def check_source_code_comment_formatting(assignment, activity):
@@ -1255,7 +1276,7 @@ def check_source_code_operator_formatting(assignment, activity):
     matches = re.findall(pattern, text)
     matches = sorted(list(set(matches)))
 
-    pattern = r"\+=|-=|\*=|\/=|<=|>=|==|!=|===|!=="
+    pattern = r"\+=|-=|\*=|\/=|<=|>=|==|!=|===|!==|-\w+"
     for index in range(len(matches) - 1, -1, -1):
         if re.search(pattern, matches[index]):
             matches.remove(matches[index])
@@ -1882,4 +1903,4 @@ def read_file(path, filename):
 
 
 if __name__ == "__main__":
-    check_duplicate_activities("Assignment 5", "Assignment 6")
+    check_python_formatting("Assignment 6", "Activity 2")
