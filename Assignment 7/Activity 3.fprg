@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-03-04 04:06:20 PM"/>
+        <attribute name="created" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDItMDE7MDE6MjU6MTMgUE07Mjg0OQ=="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTAzLTAxOzA5OjM0OjI2IFBNOzE2OzMyMzk="/>
+        <attribute name="edited" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDM7MTI6NTQ6MTYgUE07MTtDZXNhcjtERVNLVE9QLTdES1ZKVUE7MjAyMS0wMi0wMTswMToyNToxMyBQTTtBY3Rpdml0eSAxLmZwcmc7NzMzNw=="/>
+        <attribute name="edited" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDM7MDE6MDg6MDkgUE07MTtDZXNhcjtERVNLVE9QLTdES1ZKVUE7MjAyMS0wMy0wMTsxMjozMToyNiBQTTt0ZW1wZXJhdHVyZSAoMikuZnByZzs3Nzc1"/>
+        <attribute name="edited" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDQ7MDQ6MDY6MjAgUE07MzA7MzAxMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="This program coverts the distance in miles into either the US system yards or metric system kilometers."/>
+            <declare name="choice" type="String" array="False" size=""/>
+            <assign variable="choice" expression="GetChoice ()"/>
+            <if expression="choice = &quot;Y&quot; Or Choice = &quot;y&quot;">
+                <then>
+                    <call expression="ProcessUs()"/>
+                </then>
+                <else>
+                    <if expression="choice = &quot;N&quot; Or Choice = &quot;n&quot;">
+                        <then>
+                            <call expression="ProcessMetric"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Please enter Y to use the US measurement system or N to use the  metric measurement system !&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="calculatefeet" type="Real" variable="feet">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="feet" type="Real" array="False" size=""/>
+            <assign variable="feet" expression="miles * 5280"/>
+        </body>
+    </function>
+    <function name="calculatekilometers" type="Real" variable="kilometers">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="kilometers" type="Real" array="False" size=""/>
+            <assign variable="kilometers" expression="miles * 1.60934"/>
+        </body>
+    </function>
+    <function name="calculateinches" type="Real" variable="inches">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="inches" type="Real" array="False" size=""/>
+            <assign variable="inches" expression="miles * 63360"/>
+        </body>
+    </function>
+    <function name="calculatemeters" type="Real" variable="meters">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="meters" type="Real" array="False" size=""/>
+            <assign variable="meters" expression="miles * 1609.34"/>
+        </body>
+    </function>
+    <function name="calculateyards" type="Real" variable="yards">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="yards" type="Real" array="False" size=""/>
+            <assign variable="yards" expression="miles * 1760"/>
+        </body>
+    </function>
+    <function name="calculatecentimeters" type="Real" variable="centimeters">
+        <parameters>
+            <parameter name="miles" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="centimeters" type="Real" array="False" size=""/>
+            <assign variable="centimeters" expression="miles * 160934"/>
+        </body>
+    </function>
+    <function name="GetChoice" type="String" variable="choice">
+        <parameters/>
+        <body>
+            <declare name="choice" type="String" array="False" size=""/>
+            <output expression="&quot;Would you like to use the US measurement system? Y or N &quot;" newline="True"/>
+            <input variable="choice"/>
+        </body>
+    </function>
+    <function name="GetMiles" type="Integer" variable="miles">
+        <parameters/>
+        <body>
+            <declare name="miles" type="Real" array="False" size=""/>
+            <output expression="&quot;Enter a value for miles&quot;" newline="True"/>
+            <input variable="miles"/>
+        </body>
+    </function>
+    <function name="MetricDisplayResults" type="None" variable="">
+        <parameters>
+            <parameter name="kilometers" type="Real" array="False"/>
+            <parameter name="meters" type="Real" array="False"/>
+            <parameter name="centimeters" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="kilometers &amp; &quot; kilometers &quot; &amp; meters &amp; &quot; meters &quot; &amp; centimeters &amp; &quot; centimeter &quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="ProcessMetric" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="miles" type="Real" array="False" size=""/>
+            <declare name="kilometers" type="Real" array="False" size=""/>
+            <declare name="meters" type="Real" array="False" size=""/>
+            <declare name="centimeters" type="Real" array="False" size=""/>
+            <assign variable="miles" expression="getmiles ()"/>
+            <assign variable="kilometers" expression="calculatekilometers (miles)"/>
+            <assign variable="meters" expression="calculatemeters (miles)"/>
+            <assign variable="centimeters" expression="calculatecentimeters (miles)"/>
+            <call expression="MetricDisplayResults (kilometers, meters, centimeters)"/>
+        </body>
+    </function>
+    <function name="ProcessUs" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="miles" type="Real" array="False" size=""/>
+            <declare name="yards" type="Real" array="False" size=""/>
+            <declare name="feet" type="Real" array="False" size=""/>
+            <declare name="inches" type="Real" array="False" size=""/>
+            <assign variable="miles" expression="getmiles ()"/>
+            <assign variable="yards" expression="calculateyards (miles)"/>
+            <assign variable="feet" expression="calculatefeet (miles)"/>
+            <assign variable="inches" expression="calculateinches (miles)"/>
+            <call expression="UsDisplayResults (yards, feet, inches)"/>
+        </body>
+    </function>
+    <function name="UsDisplayResults" type="None" variable="">
+        <parameters>
+            <parameter name="yards" type="Real" array="False"/>
+            <parameter name="feet" type="Real" array="False"/>
+            <parameter name="inches" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="yards &amp; &quot; yards &quot; &amp; feet &amp; &quot; feet &quot; &amp; inches &amp; &quot; inches &quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
