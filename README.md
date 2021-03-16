@@ -31,3 +31,7 @@ Session 7 was a bit overwhelming, this is due to the fact that this unit uses IF
 ## Assignment 8
 
 Session 8 was really difficult compared to the other sessions. This was due to the fact that there was a new mechanic that was introduced which were logic loops. Activity 1 was a bit of a challenge because I did not know how to increase the increment by 1 as it loops. the issue that I was receiving was that the loop would repeat the same multiplication expression in a forever never-ending loop. What I realized was wrong was that a declaration was needed after the output to add the increment by 1. Something that I was also having trouble with was how many functions would be needed. I went back to the example that was presented and learned from that example as It has all three loops.
+
+## Assignment 9
+
+Session 9 was a similar experience as Session 8 where we worked with loops. The difference is the type of loop. Session 9's activities focus on the Do while loop, similar to the last session this session focuses on planning ahead of time to understand how to execute the program correctly. This is something that I was struggling with since there needs to be a clear number of variables that need to be declared as well as knowing how many functions will be needed. Something that I ended up doing was drawing how the program works. This skill is something that I will be doing for future activities as it helps me visualize what each function does and a great reference for assisting me in completing future activities.
