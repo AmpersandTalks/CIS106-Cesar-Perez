@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-03-15 11:56:19 PM"/>
+        <attribute name="created" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDc7MDQ6MjE6NDkgUE07Mjg2NA=="/>
+        <attribute name="edited" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDc7MDQ6NDM6MjcgUE07MjsyOTcz"/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTAzLTE1OzExOjU2OjE5IFBNOzExOzMyMzg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="this program that asks the user to enter grade scores and calculates the average of the entered scores."/>
+            <declare name="scores" type="Integer" array="False" size=""/>
+            <declare name="total" type="Integer" array="False" size=""/>
+            <declare name="Increment" type="Integer" array="False" size=""/>
+            <declare name="average" type="Integer" array="False" size=""/>
+            <assign variable="increment" expression="1"/>
+            <assign variable="total" expression="GetValue(&quot;total&quot;)"/>
+            <assign variable="scores" expression="GetValue(&quot;scores&quot;)"/>
+            <assign variable="average" expression="scores/total"/>
+            <call expression="DoLoop(scores, total, increment)"/>
+        </body>
+    </function>
+    <function name="DoLoop" type="None" variable="">
+        <parameters>
+            <parameter name="scores" type="Integer" array="False"/>
+            <parameter name="increment" type="Integer" array="False"/>
+            <parameter name="total" type="Integer" array="False"/>
+            <parameter name="average" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot;Do loop counting from &quot; &amp; scores &amp; &quot; to &quot; &amp; total &amp; &quot; by &quot; &amp; increment &amp; &quot;:&quot;" newline="True"/>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="scores"/>
+            <do expression="Increment &lt;= total">
+                <output expression="count" newline="True"/>
+                <assign variable="count" expression="count + scores"/>
+                <assign variable="increment" expression="increment +1"/>
+            </do>
+        </body>
+    </function>
+    <function name="GetValue" type="Integer" variable="value">
+        <parameters>
+            <parameter name="name" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="value" type="Integer" array="False" size=""/>
+            <output expression="&quot; Enter &quot; &amp; name &amp; &quot; value: &quot;" newline="True"/>
+            <input variable="value"/>
+        </body>
+    </function>
+</flowgorithm>
