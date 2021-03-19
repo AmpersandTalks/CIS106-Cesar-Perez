@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-03-19 12:00:31 AM"/>
+        <attribute name="created" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMDc7MDQ6MjE6NDkgUE07Mjg2NA=="/>
+        <attribute name="edited" value="Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDMtMTg7MDg6MDE6NDcgUE07NTsyOTc4"/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTAzLTE5OzEyOjAwOjMxIEFNOzIzOzMyMTQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="this program that asks the user to enter grade scores and calculates the average of the entered scores."/>
+            <declare name="total" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="GetValue(&quot;total&quot;)"/>
+            <declare name="Increment" type="Integer" array="False" size=""/>
+            <assign variable="increment" expression="1"/>
+            <call expression="DoLoop( total, increment)"/>
+        </body>
+    </function>
+    <function name="DoLoop" type="None" variable="">
+        <parameters>
+            <parameter name="increment" type="Integer" array="False"/>
+            <parameter name="total" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="score" type="Integer" array="False" size=""/>
+            <assign variable="score" expression="GetValue(&quot;score&quot;)"/>
+            <declare name="sum" type="Integer" array="False" size=""/>
+            <assign variable="sum" expression="score"/>
+            <do expression="Increment &gt;= total">
+                <declare name="score2" type="Integer" array="False" size=""/>
+                <assign variable="score2" expression="GetValue(&quot;score2&quot;)"/>
+                <assign variable="sum" expression="sum+score2"/>
+                <output expression="sum" newline="True"/>
+                <assign variable="increment" expression="increment + 1"/>
+            </do>
+            <declare name="average" type="Integer" array="False" size=""/>
+            <assign variable="average" expression="sum/total"/>
+            <output expression="average" newline="True"/>
+        </body>
+    </function>
+    <function name="GetValue" type="Integer" variable="value">
+        <parameters>
+            <parameter name="name" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="value" type="Integer" array="False" size=""/>
+            <output expression="&quot; Enter &quot; &amp; name &amp; &quot; value: &quot;" newline="True"/>
+            <input variable="value"/>
+        </body>
+    </function>
+</flowgorithm>
