@@ -35,3 +35,5 @@ Session 8 was really difficult compared to the other sessions. This was due to t
 ## Assignment 9
 
 Session 9 was a similar experience as Session 8 where we worked with loops. The difference is the type of loop. Session 9's activities focus on the Do while loop, similar to the last session this session focuses on planning ahead of time to understand how to execute the program correctly. This is something that I was struggling with since there needs to be a clear number of variables that need to be declared as well as knowing how many functions will be needed. Something that I ended up doing was drawing how the program works. This skill is something that I will be doing for future activities as it helps me visualize what each function does and a great reference for assisting me in completing future activities.
+
+## Assignment 10
