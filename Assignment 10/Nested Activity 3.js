@@ -1,47 +1,60 @@
+// this program uses a loop to generate a list of multiplication expressions for a given value
+
 function main() {
-    // this program uses a loop to generate a list of multiplication expressions for a given value
-    var number;
-    var factor;
-    var increment;
-    
-    number = getValue("number");
-    factor = getValue("factor");
-    increment = 1;
-    doLoop(number, factor, increment);
+    let question = "";
+
+    do {
+        let number = getValue("number");
+        let factor = getValue("factor");
+        displayExpressions(number, factor);
+        question = window.prompt("Do you want to continue (y/N)?");
+    } while (question == "y");
 }
 
-function doLoop(number, factor, increment) {
-    window.alert(" While loop multiplication from " + number + " to " + factor + " by " + increment + " : ");
-    var product;
-    
-    product = number;
-    window.alert(" Enter value y for Yes or n for no. ");
-    var question;
-    
-    do {
-        do {
-            question = getValue2("question");
-            product = number * increment;
-            window.alert(number.ToString() + " * " + increment + " = " + product);
-            increment = increment + 1;
-        } while (question == "y");
-    } while (increment <= factor);
+function displayExpressions(number, factor) {
+    for (let increment = 1; increment <= factor; increment++)
+    {
+        product = number * increment;
+        window.alert(number.toString() + " * " + increment + " = " + product);
+    }
 }
 
 function getValue(name) {
-    var value;
-    
-    window.alert(" Enter " + name + " value: ");
-    value = window.prompt('Enter a value for value');
-    
+    let value = window.prompt(" Enter " + name + " value:");    
     return value;
 }
 
-function getValue2(name) {
-    var value2;
-    
-    window.alert(" Enter " + name + " value: ");
-    value2 = window.prompt('Enter a value for value2');
-    
-    return value2;
+if (typeof alert === "undefined") {
+    global.alert = function(message) {
+        console.log(message);
+    };
 }
+
+if (typeof prompt === "undefined") {
+    global.prompt = function(message) {
+        var fs = require("fs");
+        var result = "";
+        var buffer = Buffer.alloc(1);
+
+        console.log(message);
+        for(;;){
+            fs.readSync(0, buffer, 0, 1);
+            if(buffer[0] === 10){
+                break;
+            }else if(buffer[0] !== 13){
+                result += buffer.toString();
+            }
+        }
+
+        return result;
+    }
+}
+
+if (typeof window === "undefined") {
+    global.window = {
+        alert : global.alert,
+        prompt : global.prompt
+    };
+}
+
+main();
