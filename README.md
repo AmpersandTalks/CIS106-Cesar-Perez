@@ -39,3 +39,7 @@ Session 9 was a similar experience as Session 8 where we worked with loops. The 
 ## Assignment 10
 
 Session 10 was a bit overwhelming as the activity uses the For loop. Similar to the previous sessions it was initially a bit of a challenge. As knowledge from previous loops was needed to understand the For Loop. I decided to go back to the example that was provided to better understand all the loops. This helped me better understand the For function better and how it works. I decided to go with working on activity 1 which was similar to activity one in session 8. This helped me visualize and formant the structure for the For loop. Session 10-second activity was about nested loops. this activity was a bit more difficult due to the fact that there was no example to refer back to. I decided to read and visit the additional resources to help me better visualize the structure for the nested loop.
+
+## Assignment 11
+
+Session 11 was really overwhelming as the session focuses on Arrays. This session uses the knowledge from the previous sessions to plan for the activity. An array is described as a Data structure consisting of a collection of elements. I had a really hard time 
