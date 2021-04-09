@@ -1,3 +1,6 @@
+// This program that asks the user to enter grade scores and calculates high, low, and average for the entered scores.
+
+
 function main() {
     var scores = createArray(21);
     var grades = createArray(101);
