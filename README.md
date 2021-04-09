@@ -42,4 +42,4 @@ Session 10 was a bit overwhelming as the activity uses the For loop. Similar to 
 
 ## Assignment 11
 
-Session 11 was really overwhelming as the session focuses on Arrays. This session uses the knowledge from the previous sessions to plan for the activity. An array is described as a Data structure consisting of a collection of elements. I had a really hard time 
+Session 11 was really overwhelming as the session focuses on Arrays. This session uses the knowledge from the previous sessions to plan for the activity. An array is described as a data structure consisting of a collection of elements. I had a really hard time planning the structure for both activities. I found the different types of a trays a bit confusing as well, but referenced back to the course material for further assistance. 
