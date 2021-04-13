@@ -2,15 +2,15 @@
 
 
 function main() {
-    var scores = createArray(21);
-    var grades = createArray(101);
+    var scores;
     var increment;
     var max;
     var min;
     var average;
     
     scores = getScores();
-    grades = 0 * scores;
+    var grades = createArray(scores);
+    
     increment = 0;
     while (increment < scores) {
         grades[increment] = getGrades();
@@ -22,13 +22,16 @@ function main() {
     getOutput(max, min, average);
 }
 
-function getAverage(grades, scores, increment) {
+function getAverage(grades, scores) {
+    var increment;
+    var average;
     var total;
     
     total = 0;
-    for (increment = 0; increment >= scores; increment--) {
-        total = total + marks(increment);
+    for (increment = 0; increment <= scores; increment++) {
+        total = total + grades[increment];
     }
+    average = float(total) / scores;
     
     return average;
 }
@@ -42,11 +45,12 @@ function getGrades() {
     return grades;
 }
 
-function getMax(grades, scores, increment) {
+function getMax(grades, scores) {
+    var increment;
     var max;
     
     max = 0;
-    for (increment = 0; increment >= scores; increment--) {
+    for (increment = 0; increment <= scores; increment++) {
         if (max < grades[increment]) {
             max = grades[increment];
         }
@@ -55,11 +59,12 @@ function getMax(grades, scores, increment) {
     return max;
 }
 
-function getMin(grades, scores, increment) {
+function getMin(grades, scores) {
+    var increment;
     var min;
     
     min = grades[1];
-    for (increment = 0; increment >= scores; increment--) {
+    for (increment = 0; increment <= scores; increment++) {
         if (min > grades[increment]) {
             min = grades[increment];
         }
