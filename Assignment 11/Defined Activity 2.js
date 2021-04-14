@@ -1,45 +1,32 @@
-function main() {
-    // This activity FInds the day of the birthday the person inputs.
+// This activity FInds the day of the birthday the person inputs.
     // 
     // Refrences: https://en.wikipedia.org/wiki/Zeller%27s_congruence
     // https://www.geeksforgeeks.org/zellers-congruence-find-day-date/
-    var h = createArray(6);
-    var q;
-    var m = createArray(14);
-    var k;
-    var j;
-    var y;
+
+function main() {
+    var year = getvalue("year");
+    var month = getvalue("month");
+    var day = getvalue("day");
     
-    q = getValue("day");
-    m = getValue("month");
-    y = calculateYear(j, k);
-    equation(q, m, k, j, y);
+    
+    var dayofweek = calculatedayofweek(year,month, day);
+    displayresults(dayofweek);
+    window.alert("day of week:" + dayofweek);
 }
 
-function calculateYear(k, j) {
-    var y;
+function calculatedayofweek(year, month, day) {
+    var j = math.floor(year / 100);
+    var k = year % 100;
+    var m = month;
+    var q = day;
     
-    k = getValue("decade");
-    j = getValue("century") * 100;
-    y = k + j;
-    
-    return y;
-}
-
-function equation(q, m, k, j, y) {
-    var h = createArray(6);
-    
-    h = 0;
-    if (m == 1) {
-        m = 13;
-        y = y - 1;
+    if (m < 3) {
+        m += 12;
+        y -= 1;
     }
-    if (m == 2) {
-        m = 14;
-        y = y - 1;
-    }
-    h = q + (double) (13 * (m + 1)) / 5 + k + (double) k / 4 + (double) j / 4 + 5 * j;
-    h = h % 7;
+    
+    var h = q + (13 * (m + 1)) / 5 + k +  k / 4 + j / 4 + 5 * j;
+    h = math.floor(h % 7);
     
     return h;
 }
@@ -50,5 +37,10 @@ function getValue(name) {
     window.alert(" Enter " + name + " value: ");
     value = window.prompt('Enter a value for value');
     
-    return value;
+    return Number(value);
+}
+
+function getvalue(dayofweek) {
+    var days = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
+    window.alert("That day is a " + days[dayofweek]);
 }
