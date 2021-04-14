@@ -2,39 +2,29 @@
 // Reference:
 //https://www.mathsisfun.com/definitions/average.html
 
-
-
 function main() {
-    var scores;
-    var increment;
-    var max;
-    var min;
-    var average;
     
-    scores = getScores();
-    var grades = createArray(scores);
+    var scores = getScores();
+    var grades = Array(scores);
     
-    increment = 0;
+    var increment = 0;
     while (increment < scores) {
         grades[increment] = getGrades();
         increment = increment + 1;
     }
-    max = getMax(grades, scores);
-    min = getMin(grades, scores);
-    average = getAverage(grades, scores);
+    var max = getMax(grades, scores);
+    var min = getMin(grades, scores);
+    var average = getAverage(grades, scores);
     getOutput(max, min, average);
 }
 
 function getAverage(grades, scores) {
-    var increment;
-    var average;
-    var total;
     
-    total = 0;
-    for (increment = 0; increment <= scores; increment++) {
+    var total = 0;
+    for (increment = 1; increment < scores; increment++) {
         total = total + grades[increment];
     }
-    average = float(total) / scores;
+    average = calculate(total) / scores;
     
     return average;
 }
@@ -49,11 +39,9 @@ function getGrades() {
 }
 
 function getMax(grades, scores) {
-    var increment;
-    var max;
     
-    max = 0;
-    for (increment = 0; increment <= scores; increment++) {
+    var max = [0];
+    for (increment = 1; increment < scores; increment++) {
         if (max < grades[increment]) {
             max = grades[increment];
         }
@@ -66,8 +54,8 @@ function getMin(grades, scores) {
     var increment;
     var min;
     
-    min = grades[1];
-    for (increment = 0; increment <= scores; increment++) {
+    min = grades[0];
+    for (increment = 1; increment < scores; increment++) {
         if (min > grades[increment]) {
             min = grades[increment];
         }
