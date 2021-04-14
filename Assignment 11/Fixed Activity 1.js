@@ -1,4 +1,7 @@
-// This program that asks the user to enter grade scores and calculates high, low, and average for the entered scores.
+// This program asks the user for grades and the calculates the highest, lowest and average of the scores
+// Reference:
+//https://www.mathsisfun.com/definitions/average.html
+
 
 
 function main() {
