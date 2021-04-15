@@ -44,3 +44,12 @@ function getvalue(dayofweek) {
     var days = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
     window.alert("That day is a " + days[dayofweek]);
 }
+
+if (typeof window === "undefined") {
+    global.window = {
+        alert : global.alert,
+        prompt : global.prompt
+    };
+}
+
+main();
