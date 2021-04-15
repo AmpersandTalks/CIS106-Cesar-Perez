@@ -21,10 +21,10 @@ function main() {
 function getAverage(grades, scores) {
     
     var total = 0;
-    for (increment = 1; increment < scores; increment++) {
+    for (increment = 0; increment < scores; increment++) {
         total = total + grades[increment];
     }
-    average = calculate(total) / scores;
+    average = total / scores;
     
     return average;
 }
@@ -35,7 +35,7 @@ function getGrades() {
     window.alert("Please Input Grades :");
     grades = window.prompt('Enter a value for grades');
     
-    return grades;
+    return Number(grades);
 }
 
 function getMax(grades, scores) {
@@ -65,9 +65,9 @@ function getMin(grades, scores) {
 }
 
 function getOutput(max, min, average) {
-    window.alert("Maximum Grade:" + max);
-    window.alert("Minimum Grade :" + min);
-    window.alert("Average Grade :" + average);
+    window.alert("Maximum Grade: " + max);
+    window.alert("Minimum Grade: " + min);
+    window.alert("Average Grade: " + average);
 }
 
 function getScores() {
@@ -77,6 +77,32 @@ function getScores() {
     scores = window.prompt('Enter a value for scores');
     
     return scores;
+}
+
+if (typeof alert === "undefined") {
+    global.alert = function(message) {
+        console.log(message);
+    };
+}
+
+if (typeof prompt === "undefined") {
+    global.prompt = function(message) {
+        var fs = require("fs");
+        var result = "";
+        var buffer = Buffer.alloc(1);
+
+        console.log(message);
+        for(;;){
+            fs.readSync(0, buffer, 0, 1);
+            if(buffer[0] === 10){
+                break;
+            }else if(buffer[0] !== 13){
+                result += buffer.toString();
+            }
+        }
+
+        return result;
+    }
 }
 
 if (typeof window === "undefined") {

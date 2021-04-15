@@ -4,29 +4,28 @@
     // https://www.geeksforgeeks.org/zellers-congruence-find-day-date/
 
 function main() {
-    var year = getvalue("year");
-    var month = getvalue("month");
-    var day = getvalue("day");
+    var year = getValue("year");
+    var month = getValue("month");
+    var day = getValue("day");
     
-    
-    var dayofweek = calculatedayofweek(year,month, day);
-    displayresults(dayofweek);
-    window.alert("day of week:" + dayofweek);
+    var dayofweek = calculateDayOfWeek(year,month, day);
+    displayResults(dayofweek);
 }
 
-function calculatedayofweek(year, month, day) {
-    var j = math.floor(year / 100);
+function calculateDayOfWeek(year, month, day) {
+    if (month < 3) {
+        month += 12;
+        year -= 1;
+    }
+    
+    var j = Math.floor(year / 100);
     var k = year % 100;
     var m = month;
     var q = day;
-    
-    if (m < 3) {
-        m += 12;
-        y -= 1;
-    }
+    var y = year;
     
     var h = q + (13 * (m + 1)) / 5 + k +  k / 4 + j / 4 + 5 * j;
-    h = math.floor(h % 7);
+    h = Math.floor(h % 7);
     
     return h;
 }
@@ -40,9 +39,35 @@ function getValue(name) {
     return Number(value);
 }
 
-function getvalue(dayofweek) {
+function displayResults(dayofweek) {
     var days = ["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"];
     window.alert("That day is a " + days[dayofweek]);
+}
+
+if (typeof alert === "undefined") {
+    global.alert = function(message) {
+        console.log(message);
+    };
+}
+
+if (typeof prompt === "undefined") {
+    global.prompt = function(message) {
+        var fs = require("fs");
+        var result = "";
+        var buffer = Buffer.alloc(1);
+
+        console.log(message);
+        for(;;){
+            fs.readSync(0, buffer, 0, 1);
+            if(buffer[0] === 10){
+                break;
+            }else if(buffer[0] !== 13){
+                result += buffer.toString();
+            }
+        }
+
+        return result;
+    }
 }
 
 if (typeof window === "undefined") {
