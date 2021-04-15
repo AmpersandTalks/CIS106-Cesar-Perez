@@ -78,3 +78,12 @@ function getScores() {
     
     return scores;
 }
+
+if (typeof window === "undefined") {
+    global.window = {
+        alert : global.alert,
+        prompt : global.prompt
+    };
+}
+
+main();
