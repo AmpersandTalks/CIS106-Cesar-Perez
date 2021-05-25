@@ -1,17 +1,16 @@
-# CIS 106 JavaScript Tests
+# CIS 106 Python Tests
 #
 # References:
 #   https://docs.github.com/en/free-pro-team@latest/actions
 #   https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python
-#   https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-nodejs
 
-name: CIS 106 JavaScript Tests
+name: CIS 106 Python Tests
 
 on: [push]
 
 jobs:
   build:
-    name: Run CIS 106 JavaScript Tests
+    name: Run CIS 106 Python Tests
     runs-on: ubuntu-latest
     timeout-minutes: 1
     
@@ -19,16 +18,6 @@ jobs:
     - name: Copy repository
       uses: actions/checkout@v2
     
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install Node.js packages
-      run: |
-        npm install
-        npm install eslint
-
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -36,9 +25,9 @@ jobs:
 
     - name: Install Python packages
       run: |
-        # install pytest and any requirements.txt 
+        # install flake8, pytest, and any requirements.txt 
         python -m pip install --upgrade pip
-        pip install pytest
+        pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Test with pytest
