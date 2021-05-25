@@ -2,7 +2,7 @@
 
 ## Assignment 1
 
-I am currently taking this course to learn how to use the programming code JavaScript. The reason I want to learn JavaScript is to further help my endeavors to use it for Web Development. I am also taking this class to complete my IT associate's degree as it is a requirement to complete CIS 106. I've always been fascinated with how far coding language has gone. When I was a Senior in high school had a project where we needed to code a Raspberry Pi board. Since then I've been fascinated and eager to learn how to code but never knew where to start or the fundamentals. I am excited to see what I learn and how I can apply it to my Profession.
+I am currently taking this course to learn how to use the programming coding language Python. The reason I want to learn Python is to further help my understanding of the coding language. I am also taking this class to complete my IT associate's degree as it is a requirement to complete CIS 106. I've always been fascinated with how far coding language has gone. I initially decided to learn JavaScript but felt like there was much of a learning curve as opposed to learning python. As It is a recommended language for beginners as it is a basic language that can be a foundation to help me better understand other languages. 
 
 ## Assignment 2
 
