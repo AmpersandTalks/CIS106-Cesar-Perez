@@ -5,16 +5,25 @@ How to make an egg sandwich
 4. take out frying pan
 5. turn on stove
 6. take out oil
-7. pour oil on empty frying pan
-8. crack 2 eggs
-9. pour eggs on to the frying pan
-10. take out toaster 
-11. put two slices of bread on toaster to bake
-12. scramble eggs on pan
-13. take out bread from toaster
-14. take out plate
-15. put slices of bread on plate
-16. put slice of cheese on bread
-17. put egg on bread
-18. close sandwich 
-19. enjoy
+7. open oil bottle
+8. pour oil on empty frying pan
+9. crack 2 eggs
+10. pour eggs on to the frying pan
+11. throw away egg shells in the trash
+12. close eggs
+13. put away eggs
+14. take out toaster 
+15. put two slices of bread on toaster to bake
+16. close bread
+17. put away bread
+18. take out spatula
+19. scramble eggs on pan with spatula
+20. take out bread from toaster
+21. take out plate
+22. put slices of bread on plate
+23. turn off stove
+24. put slice of cheese on bread
+25. put away cheese
+26. put egg with spatula on bread
+27. close sandwich 
+28. enjoy
