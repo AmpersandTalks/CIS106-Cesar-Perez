@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar Perez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-05-31 03:14:23 PM"/>
+        <attribute name="created" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjEyOjA0IFBNOzMwNjg="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjEyOjE1IFBNOzE7Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDItMDE7MDE6MjU6MTMgUE07QWN0aXZpdHkgNy5mcHJnOzc1NTQ="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjE0OjIzIFBNOzE7MzE3OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="This program asks for the amount of human years and converts it into dog years."/>
+            <declare name="dogname" type="String" array="False" size=""/>
+            <declare name="humanyear" type="Real" array="False" size=""/>
+            <declare name="dogyear" type="Real" array="False" size=""/>
+            <output expression="&quot;Enter Dog's Name&quot;" newline="True"/>
+            <input variable="dogname"/>
+            <output expression="&quot;Enter Human Years&quot;" newline="True"/>
+            <input variable="humanyear"/>
+            <assign variable="dogyear" expression="(humanyear * 7)"/>
+            <output expression="dogname &amp; &quot; is &quot; &amp; dogyear &amp; &quot; Dog Years&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

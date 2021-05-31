@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar Perez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-05-31 03:10:33 PM"/>
+        <attribute name="created" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjAzOjI1IFBNOzMwNzE="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjA1OjQ3IFBNOzE7Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDItMDE7MDE6MjU6MTMgUE07QWN0aXZpdHkgMi5mcHJnOzc1NTY="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA1LTMxOzAzOjEwOjMzIFBNOzQ7MzE3OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="This program asks for the amount of Years and converts into how many months,days,hours, minutes and seconds."/>
+            <declare name="year" type="Real" array="False" size=""/>
+            <declare name="month" type="Real" array="False" size=""/>
+            <declare name="day" type="Real" array="False" size=""/>
+            <declare name="hour" type="Real" array="False" size=""/>
+            <declare name="seconds" type="Real" array="False" size=""/>
+            <output expression="&quot;How old are you?&quot;" newline="True"/>
+            <input variable="year"/>
+            <assign variable="month" expression="year * 12"/>
+            <assign variable="day" expression="year * 365"/>
+            <assign variable="hour" expression="year * 8760"/>
+            <assign variable="seconds" expression="year * 31536000"/>
+            <output expression="month &amp; &quot; months &quot; &amp; day &amp; &quot; days &quot; &amp; hour &amp; &quot; hours &quot; &amp; seconds &amp; &quot; seconds &quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
