@@ -1,5 +1,5 @@
-# This program asks for the amount of Years and converts into how many months,days,hours, minutes and seconds.
-print("How old are you?")
+# This program asks for the amount of Years and converts into how many months,days,hours, and seconds.
+print("What is your age in years?")
 year = float(input())
 month = year * 12
 day = year * 365
