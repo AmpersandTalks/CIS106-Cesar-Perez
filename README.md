@@ -14,3 +14,4 @@ Session 3 was really interesting because we were able to use more of the mechani
 
 ## Assignment 4
 
+Session 4 focuses on implementing what we learned in the previous assignment and apply it while writing in the preferred programing language. I struggled to write in python but adapted by looking back at examples. Using Visual Studio Code I was able to figure out the mistakes that I was making and correcting them accordingly. This example taught me the basics of python and understand the format of my code.
