@@ -1,6 +1,6 @@
 # This program converts the unit miles in to yards, feet, and inches.
 # Reference:https://www.mathsisfun.com/measure/us-standard-length.html
-#  https://en.wikibooks.org/wiki/JavaScript
+# https://en.wikibooks.org/wiki/JavaScript
 
 print('Enter miles distance')
 miles = float(input())
