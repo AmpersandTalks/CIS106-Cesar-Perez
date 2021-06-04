@@ -9,7 +9,7 @@ yards = miles * 1760
 feet = miles * 5280
 inches = miles * 63360
 
-print(str(miles) + " miles is " +
-    str(yards) + " yards " +
-    str(feet) +  " feet " +
-    str(inches) +  " inches ")
+print(str(miles) + " miles is " + 
+      str(yards) + " yards " +
+      str(feet) +  " feet " +
+      str(inches) +  " inches ")
