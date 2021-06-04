@@ -11,5 +11,5 @@ monthly = hours * rate_per_hour * 4
 annual = hours * rate_per_hour * 52
 
 print("$" + str(weekly) + " weekly " +
-    "$" + str(monthly) + " monthly " +
-    "$" + str(annual) + " annually ")
+      "$" + str(monthly) + " monthly " +
+      "$" + str(annual) + " annually ")
