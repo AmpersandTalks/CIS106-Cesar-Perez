@@ -1,11 +1,8 @@
 # This program calculates  their weekly, monthly, and annual gross pay.
-#
-# References:
-#  https://en.wikibooks.org/wiki/JavaScript
+# References:https://en.wikibooks.org/wiki/JavaScript
 
 print("Enter hours worked this week : ")
 hours = float(input())
-
 print("Enter rate per hour : ")
 ratePerHour = float(input())
 
