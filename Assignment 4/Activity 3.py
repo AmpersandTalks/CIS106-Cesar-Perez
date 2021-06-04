@@ -11,4 +11,4 @@ inches = miles * 63360
 
 print(str(miles) + " miles is " +
       str(yards) + " yards " + str(feet) +
-      " feet " + str(inches) +  " inches ")
+      " feet " + str(inches) + " inches ")
