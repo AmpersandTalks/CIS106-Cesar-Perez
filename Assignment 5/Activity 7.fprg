@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar Perez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-06-07 10:45:53 PM"/>
+        <attribute name="created" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjQwOjU4IFBNOzMwODA="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjQxOjIyIFBNOzI7Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTAyLTE1OzA3OjE3OjI2IFBNO0FjdGl2aXR5IDcuZnByZzs3Nzg4"/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjQ1OjUzIFBNOzI7MzE4OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="This program converts Human years to Dog years.&#13;&#10;Reference:&#13;&#10;https://en.wikipedia.org/wiki/Aging_in_dogs"/>
+            <declare name="dogname" type="String" array="False" size=""/>
+            <declare name="humanyear" type="Real" array="False" size=""/>
+            <declare name="dogyears" type="Real" array="False" size=""/>
+            <assign variable="dogname" expression="getdogname ()"/>
+            <assign variable="humanyear" expression="gethumanyear ()"/>
+            <assign variable="dogyears" expression="calculatedogyears(humanyear)"/>
+            <call expression="DisplayResult(dogname,dogyears)"/>
+        </body>
+    </function>
+    <function name="calculatedogyears" type="Real" variable="dogyears">
+        <parameters>
+            <parameter name="humanyear" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="dogyears" type="Real" array="False" size=""/>
+            <assign variable="dogyears" expression="(humanyear * 7)"/>
+        </body>
+    </function>
+    <function name="DisplayResult" type="None" variable="">
+        <parameters>
+            <parameter name="dogname" type="String" array="False"/>
+            <parameter name="dogyears" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="dogname &amp; &quot; is &quot; &amp; dogyears &amp; &quot; Dog Years&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="getdogname" type="String" variable="dogname">
+        <parameters/>
+        <body>
+            <declare name="dogname" type="String" array="False" size=""/>
+            <output expression="&quot;Enter Dog's Name&quot;" newline="True"/>
+            <input variable="dogname"/>
+        </body>
+    </function>
+    <function name="gethumanyear" type="Real" variable="humanyear">
+        <parameters/>
+        <body>
+            <declare name="humanyear" type="Real" array="False" size=""/>
+            <output expression="&quot;Enter dogs age is in human years&quot;" newline="True"/>
+            <input variable="humanyear"/>
+        </body>
+    </function>
+</flowgorithm>

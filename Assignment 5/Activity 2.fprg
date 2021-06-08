@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar Perez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-06-07 10:39:23 PM"/>
+        <attribute name="created" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjMyOjUwIFBNOzMwNzM="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjMzOjQxIFBNOzM7Q2VzYXI7REVTS1RPUC03REtWSlVBOzIwMjEtMDItMDE7MDE6MjU6MTMgUE07QWN0aXZpdHkgMi5mcHJnOzc1NTU="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTA3OzEwOjM5OjIzIFBNOzE7MzE4OA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="This program converts the unit of Years into months,days,hours, minutes and seconds."/>
+            <declare name="year" type="Real" array="False" size=""/>
+            <declare name="months" type="Real" array="False" size=""/>
+            <declare name="days" type="Real" array="False" size=""/>
+            <declare name="hours" type="Real" array="False" size=""/>
+            <declare name="seconds" type="Real" array="False" size=""/>
+            <assign variable="year" expression="getyear ()"/>
+            <assign variable="months" expression="calculatemonths (year)"/>
+            <assign variable="days" expression="calculatedays (year)"/>
+            <assign variable="hours" expression="calculatehours (year)"/>
+            <assign variable="seconds" expression="calculateseconds (year)"/>
+            <call expression="DisplayResult (months, days, hours, seconds)"/>
+        </body>
+    </function>
+    <function name="calculatedays" type="Real" variable="days">
+        <parameters>
+            <parameter name="year" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="days" type="Real" array="False" size=""/>
+            <assign variable="days" expression="year * 365"/>
+        </body>
+    </function>
+    <function name="calculatehours" type="Real" variable="hours">
+        <parameters>
+            <parameter name="year" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="hours" type="Real" array="False" size=""/>
+            <assign variable="hours" expression="year * 8760"/>
+        </body>
+    </function>
+    <function name="calculatemonths" type="Real" variable="months">
+        <parameters>
+            <parameter name="year" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="months" type="Real" array="False" size=""/>
+            <assign variable="months" expression="year * 12"/>
+        </body>
+    </function>
+    <function name="calculateseconds" type="Real" variable="seconds">
+        <parameters>
+            <parameter name="year" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="seconds" type="Real" array="False" size=""/>
+            <assign variable="seconds" expression="year * 31536000"/>
+        </body>
+    </function>
+    <function name="displayResult" type="None" variable="">
+        <parameters>
+            <parameter name="months" type="Real" array="False"/>
+            <parameter name="days" type="Real" array="False"/>
+            <parameter name="hours" type="Real" array="False"/>
+            <parameter name="seconds" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <output expression="months &amp; &quot; months &quot; &amp; days &amp; &quot; days &quot; &amp; hours &amp; &quot; hours &quot; &amp; seconds &amp; &quot; seconds &quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="getyear" type="Real" variable="year">
+        <parameters/>
+        <body>
+            <declare name="year" type="Real" array="False" size=""/>
+            <output expression="&quot;How old are you?&quot;" newline="True"/>
+            <input variable="year"/>
+        </body>
+    </function>
+</flowgorithm>
