@@ -1,27 +1,31 @@
 
-function calculatefeet(miles) {
-    let feet = miles * 5280;
-    return feet;
-}
+function calculatefeet(miles):
+    feet = miles * 5280
+    
+    return feet
 
-function calculateinches(miles) {
-    let inches = miles * 63360;
-    return inches;
-}
 
-function calculateyards(miles) {
-    let yards = miles * 1760;    
-    return yards;
-}
+function calculateinches(miles):
+    inches = miles * 63360
+    
+    return inches
 
-function Displayresult(yards, feet, inches) {
-    window.alert(yards.toString() + " yards " + feet + " feet " + inches + " inches ");
-}
 
-function getmiles() {
-    window.alert("Enter a value for miles");
-    let miles = window.prompt('Enter a value for miles');
-    return miles;
+function calculateyards(miles):
+    yards = miles * 1760   
+    
+    return yards
+
+
+function Displayresult(yards, feet, inches):
+    print(Str(yards) + " yards " + feet + " feet " + inches + " inches ")
+
+
+function getmiles():
+    print("Enter a value for miles")
+    miles = float(input())
+    
+    return miles
 
 
 
@@ -29,11 +33,8 @@ function getmiles() {
 # Reference: https://www.mathsisfun.com/measure/us-standard-length.html
 # https://en.wikibooks.org/wiki/JavaScript
 
-function main() {
     miles = getmiles();
     yards = calculateyards(miles);
     feet = calculatefeet(miles);
     inches = calculateinches(miles);
-    
     Displayresult(yards, feet, inches);
-}
