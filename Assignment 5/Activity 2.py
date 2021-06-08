@@ -19,7 +19,7 @@ def calculateseconds(years):
     return seconds
 
 def displayResult(years, months, days, hours, seconds):
-    print(str(years) + " year(s) " + str(months) + " months " + str(days) + " days " + str(hours) + " hours " + str(seconds) + " seconds ")
+    print(str(years) + " years " + str(months) + " months " + str(days) + " days " + str(hours) + " hours " + str(seconds) + " seconds ")
 
 def getyears():
     print("How old are you?")
