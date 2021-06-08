@@ -19,3 +19,5 @@ Session 4 focuses on implementing what we learned in the previous assignment and
 ## Assignment 5
 
 Session 5 focuses on functions that are described as a block of organized code that performs one task. Something that I learned was how Flowgorithm was able to add more functions and manage them through the functions manager tool in Flowgorithm. This method condenses the code into one function and can reference it back to a different function. This chapter was not as difficult there was just a couple of new things that I learned activities were similar to Assignment 3 but used more than one function. Something that I learned was that modularization has the advantages such as developing programs more efficiently and quicker and makes it easier for debugging and modifying code this was apparent especially when I making errors I was able to pinpoint where my errors were much easier.
+
+## Assignment 6
