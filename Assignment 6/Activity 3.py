@@ -19,7 +19,7 @@ def Display_result(yards, feet, inches):
 
 def get_miles():
     print("Enter a value for miles")
-    miles = input()
+    miles = float(input())
     return miles
 
 # main
