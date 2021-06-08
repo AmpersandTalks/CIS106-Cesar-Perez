@@ -28,7 +28,7 @@ def getyear():
     return year
 
 # Main
-# This program converts the unit of Years into months,days,hours, minutes and seconds.
+# This program converts the unit of Years into months,days,hours, and seconds.
 year = getyear()
 months = calculatemonths(year)
 days = calculatedays(year)
