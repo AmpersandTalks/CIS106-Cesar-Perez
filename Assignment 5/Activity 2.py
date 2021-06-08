@@ -18,8 +18,8 @@ def calculateseconds(year):
     
     return seconds
 
-def displayResult(months, days, hours, seconds):
-    print(str(months) + " months " + str(days) + " days " + str(hours) + " hours " + str(seconds) + " seconds ")
+def displayResult(year, months, days, hours, seconds):
+    print(str(year) + " year(s) " + str(months) + " months " + str(days) + " days " + str(hours) + " hours " + str(seconds) + " seconds ")
 
 def getyear():
     print("How old are you?")
@@ -28,10 +28,10 @@ def getyear():
     return year
 
 # Main
-# This program converts the unit of Years into months,days,hours, and seconds.
+# This program converts the unit of Years into months,days,hours, minutes and seconds.
 year = getyear()
 months = calculatemonths(year)
 days = calculatedays(year)
 hours = calculatehours(year)
 seconds = calculateseconds(year)
-displayResult(months, days, hours, seconds)
+displayResult(year, months, days, hours, seconds)
