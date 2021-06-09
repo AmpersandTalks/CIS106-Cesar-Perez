@@ -1,3 +1,7 @@
+# This program converts the unit miles in to yards, feet, and inches.
+# Reference: https://www.mathsisfun.com/measure/us-standard-length.html
+# https://en.wikibooks.org/wiki/JavaScript
+
 def calculate_feet(miles):
     feet = miles * 5280    
     return feet
@@ -13,8 +17,9 @@ def calculate_yards(miles):
     return yards
 
 
-def Display_result(yards, feet, inches):
-    print(str(yards) + " yards " + str(feet) + " feet " + str(inches) + " inches ")
+def display_result(yards, feet, inches):
+    print(str(yards) + " yards " + 
+    str(feet) + " feet " + str(inches) + " inches ")
 
 
 def get_miles():
@@ -22,13 +27,12 @@ def get_miles():
     miles = float(input())
     return miles
 
-# main
-# This program converts the unit miles in to yards, feet, and inches.
-# Reference: https://www.mathsisfun.com/measure/us-standard-length.html
-# https://en.wikibooks.org/wiki/JavaScript
+# main function starts here
 
-miles = get_miles()
-yards = calculate_yards(miles)
-feet = calculate_feet(miles)
-inches = calculate_inches(miles)
-Display_result(yards, feet, inches)
+def main():
+    miles = get_miles()
+    yards = calculate_yards(miles)
+    feet = calculate_feet(miles)
+    inches = calculate_inches(miles)
+    display_result(yards, feet, inches)
+    main()
