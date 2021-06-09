@@ -1,3 +1,6 @@
+# This program calculates  their weekly, monthly, and annual gross pay.
+# References: https://en.wikibooks.org/wiki/JavaScript
+
 def calculate_monthly(hours, rate_per_hour):
     monthly = hours * rate_per_hour * 4
     return monthly
@@ -30,12 +33,11 @@ def get_rate_per_hour():
     rate_per_hour = float(input())
     return rate_per_hour
 
-# This program calculates  their weekly, monthly, and annual gross pay.
-# References: https://en.wikibooks.org/wiki/JavaScript
-#main
-hours = get_hours()
-rate_per_hour = get_rate_per_hour()
-weekly = calculate_weekly(rate_per_hour, hours)
-monthly = calculate_monthly(rate_per_hour, hours)
-annual = calculate_annual(rate_per_hour, hours)
-display_result(weekly, monthly, annual)
+# main function starts here
+def main():
+    hours = get_hours()
+    rate_per_hour = get_rate_per_hour()
+    weekly = calculate_weekly(rate_per_hour, hours)
+    monthly = calculate_monthly(rate_per_hour, hours)
+    annual = calculate_annual(rate_per_hour, hours)
+    display_result(weekly, monthly, annual)
