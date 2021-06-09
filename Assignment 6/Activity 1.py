@@ -34,10 +34,9 @@ def get_rate_per_hour():
     return rate_per_hour
 
 # main function starts here
-def main():
-    hours = get_hours()
-    rate_per_hour = get_rate_per_hour()
-    weekly = calculate_weekly(rate_per_hour, hours)
-    monthly = calculate_monthly(rate_per_hour, hours)
-    annual = calculate_annual(rate_per_hour, hours)
-    display_result(weekly, monthly, annual)
+hours = get_hours()
+rate_per_hour = get_rate_per_hour()
+weekly = calculate_weekly(rate_per_hour, hours)
+monthly = calculate_monthly(rate_per_hour, hours)
+annual = calculate_annual(rate_per_hour, hours)
+display_result(weekly, monthly, annual)
