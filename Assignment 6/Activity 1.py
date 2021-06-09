@@ -13,8 +13,10 @@ def calculate_weekly(hours, rate_per_hour):
     return weekly
 
 
-def Display_result(weekly, monthly, annual):
-    print(str(weekly) + " weekly " + str(monthly) + " monthly " + str(annual) + " annually ")
+def display_result(weekly, monthly, annual):
+    print(str(weekly) + " weekly " + 
+    str(monthly) + " monthly " + 
+    str(annual) + " annually ")
 
 
 def get_hours():
@@ -36,4 +38,4 @@ rate_per_hour = get_rate_per_hour()
 weekly = calculate_weekly(rate_per_hour, hours)
 monthly = calculate_monthly(rate_per_hour, hours)
 annual = calculate_annual(rate_per_hour, hours)
-Display_result(weekly, monthly, annual)
+display_result(weekly, monthly, annual)
