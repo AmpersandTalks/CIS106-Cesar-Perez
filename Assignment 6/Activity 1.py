@@ -44,5 +44,5 @@ def main():
     annual = calculate_annual(rate_per_hour, hours)
     display_result(weekly, monthly, annual)
 
+    
 main()
-
