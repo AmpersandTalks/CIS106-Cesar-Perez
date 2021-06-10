@@ -31,9 +31,11 @@ def get_miles():
 def main():
      
     miles = get_miles()
+    
     yards = calculate_yards(miles)
     feet = calculate_feet(miles)
     inches = calculate_inches(miles)
+    
     display_result(yards, feet, inches)
     
     
