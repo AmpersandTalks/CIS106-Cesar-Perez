@@ -28,9 +28,7 @@ def get_miles():
     return miles
 
 
-# main function starts here
-def main():
-     
+def main():     
     miles = get_miles()
     
     yards = calculate_yards(miles)
