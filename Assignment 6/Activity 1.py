@@ -44,3 +44,4 @@ def main():
     display_result(weekly, monthly, annual)
 
 main()
+
