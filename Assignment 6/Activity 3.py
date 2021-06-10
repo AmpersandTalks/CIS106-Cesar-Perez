@@ -30,7 +30,6 @@ def get_miles():
 # main function starts here
 def main():
     
-    
     miles = get_miles()
     yards = calculate_yards(miles)
     feet = calculate_feet(miles)
