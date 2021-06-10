@@ -37,6 +37,5 @@ def main():
     inches = calculate_inches(miles)
     
     display_result(yards, feet, inches)
-    
-    
+     
 main()
