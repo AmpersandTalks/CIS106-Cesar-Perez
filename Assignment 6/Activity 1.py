@@ -36,6 +36,7 @@ def get_rate_per_hour():
 
 # main function starts here
 def main():
+    
     hours = get_hours()
     rate_per_hour = get_rate_per_hour()
     weekly = calculate_weekly(rate_per_hour, hours)
