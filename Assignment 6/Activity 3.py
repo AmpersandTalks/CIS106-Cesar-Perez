@@ -27,7 +27,6 @@ def get_miles():
     miles = float(input())
     return miles
 
-
 # main function starts here
 def main():
     
@@ -40,3 +39,4 @@ def main():
     
     
 main()
+
