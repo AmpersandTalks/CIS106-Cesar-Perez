@@ -41,7 +41,8 @@ def get_miles():
     return miles
 
 def metric_display_results(kilometers, meters, centimeters):
-    print(str(kilometers) + " kilometers " + str(meters) + " meters " + str(centimeters) + " centimeter ")
+    print(str(kilometers) + " kilometers " + 
+          str(meters) + " meters " + str(centimeters) + " centimeter ")
 
 def process_metric():
     miles = get_miles()
@@ -58,9 +59,11 @@ def process_us():
     us_display_results(yards, feet, inches)
 
 def us_display_results(yards, feet, inches):
-    print(str(yards) + " yards " + str(feet) + " feet " + str(inches) + " inches ")
+    print(str(yards) + " yards " + 
+          str(feet) + " feet " + str(inches) + " inches ")
 
-# This program coverts the distance in miles into either the US system yards or metric system kilometers.
+# This program coverts the distance in miles into either the US system yards 
+# or metric system kilometers.
 choice = get_choice()
 if choice == "Y" or choice == "y":
     process_us()
@@ -68,4 +71,4 @@ else:
     if choice == "N" or choice == "n":
         process_metric()
     else:
-        print("Please enter Y to use the US measurement system or N to use the  metric measurement system !")
+        print("Please enter Y to use the US measurement system or N to use the metric measurement system!")
