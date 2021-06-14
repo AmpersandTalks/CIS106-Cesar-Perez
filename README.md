@@ -23,3 +23,5 @@ Session 5 focuses on functions that are described as a block of organized code t
 ## Assignment 6
 
 Session 6 uses the same concepts as in Session 5, but this time using the knowledge from session 5 to code in our preferred language. Session 6 was not difficult at all in the sense of getting the program to work but instead getting the formatting of my code correctly was a bit hard. They're a lot of resources that assist in learning how to format your programing language. When working on the activities I learned that it is important to keep an eye for any typos when assigning names to functions. I was getting an error where I was not able to find the function because it was missing a character. revising and testing the code multiple times before submitting is important. This occurred to me in the last session where Flowgorithm was making an error every time it would covert the pseudo-code into JavaScript It was capitalizing ToString. This is incorrect and will keep an eye on any other mistakes like these. 
+
+## Assignment 7
