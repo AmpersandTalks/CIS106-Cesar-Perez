@@ -33,7 +33,7 @@ def calculate_yards(miles):
 
 
 def get_choice():
-    print("Would you like to use the US measurement system? Y or N ")
+    print("Would you like to use the US measurement system or Metric ?")
     choice = input()
     return choice
 
@@ -72,13 +72,13 @@ def us_display_results(yards, feet, inches):
 
 def main():
     choice = get_choice()
-    if choice == "Y" or choice == "y":
+    if choice == "US" or choice == "Us":
         process_us()
     else:
-        if choice == "N" or choice == "n":
+        if choice == "Metric" or choice == "metric":
             process_metric()
         else:
-            print("Please enter Y to use the US measurement system or N to use the metric measurement system!")
+            print("Please enter US to use the US measurement system or metric to use the metric measurement system !")
 
 
 main()
