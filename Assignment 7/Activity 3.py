@@ -58,7 +58,7 @@ def process_metric(miles):
 
 def process_us(miles):
     yards = calculate_yards(miles)
-    feet = calculate_centimeters(miles)
+    feet = calculate_feet(miles)
     inches = calculate_inches(miles)
     us_display_results(yards, feet, inches)
 
