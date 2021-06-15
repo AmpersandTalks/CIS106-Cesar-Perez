@@ -27,3 +27,5 @@ Session 6 uses the same concepts as in Session 5, but this time using the knowle
 ## Assignment 7
 
 Assignment 7 introduces the concept of conditions as well as learning how to implement the IF statements. When working on activity 1 I realized that less than or greater than can be used for IF statements, this helped a lot when building the program that calculates overtime for activity 1. Using the general knowledge from previous assignments helped a lot when planning and building the program for both assignments. A part where I got stuck was when working on activity 1. I planned on asking if the person had worked overtime as the choice in the beginning. I would then use the IF statement to determine the process and the calculation. The idea was dismissed because the activity required calculating the amount of money made for Overtime hours. This is where I decided to ask for the number of hours worked and use greater than or less than on the IF statement.
+
+## Assignment 8
