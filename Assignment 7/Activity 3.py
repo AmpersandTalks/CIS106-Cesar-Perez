@@ -49,16 +49,14 @@ def metric_display_results(kilometers, meters, centimeters):
     str(meters) + " meters " + str(centimeters) + " centimeter ")
 
 
-def process_metric():
-    miles = get_miles()
+def process_metric(miles):
     kilometers = calculate_kilometers(miles)
     meters = calculate_meters(miles)
     centimeters = calculate_centimeters(miles)
     metric_display_results(kilometers, meters, centimeters)
 
 
-def process_us():
-    miles = get_miles()
+def process_us(miles):
     yards = calculate_yards(miles)
     feet = calculate_centimeters(miles)
     inches = calculate_inches(miles)
@@ -71,14 +69,15 @@ def us_display_results(yards, feet, inches):
 
 
 def main():
+    miles = get_miles()
     choice = get_choice()
     if choice == "US" or choice == "Us":
-        process_us()
+        process_us(miles)
     else:
         if choice == "Metric" or choice == "metric":
-            process_metric()
+            process_metric(miles)
         else:
-            print("Please Input US or metric to calculate in that measurement system !")
+            print("Please enter US to use the US measurement system or metric to use the metric measurement system !")
 
 
 main()
