@@ -77,7 +77,7 @@ def main():
         if choice == "Metric" or choice == "metric":
             process_metric(miles)
         else:
-            print("Please enter US to use the US measurement system or metric to use the metric measurement system !")
+            print("Please enter US or metric to use that metric measurement system !")
 
 
 main()
