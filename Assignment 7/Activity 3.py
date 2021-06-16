@@ -73,11 +73,10 @@ def main():
     choice = get_choice()
     if choice == "US" or choice == "Us":
         process_us(miles)
+    elif choice == "Metric" or choice == "metric":
+        process_metric(miles)
     else:
-        if choice == "Metric" or choice == "metric":
-            process_metric(miles)
-        else:
-            print("Please enter US or metric !")
+        print("Please enter US or metric !")
 
 
 main()
