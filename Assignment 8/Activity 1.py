@@ -13,10 +13,10 @@ def whileLoop(number, factor, increment):
         increment = increment + 1
 
 # this program uses a loop to generate a list of multiplication expressions for a given value
-main():
+def main():
     number = getValue("number")
     factor = getValue("factor")
     increment = 1
     whileLoop(number, factor, increment)
-    
+
 main()
