@@ -1,4 +1,3 @@
-
 def get_scores(total):
     counter = 1
     while counter <= total:
@@ -25,6 +24,5 @@ def main():
     scores = get_scores(total)
     average = float(scores) / total
     get_total(scores, total, average)
-
 
 main()
