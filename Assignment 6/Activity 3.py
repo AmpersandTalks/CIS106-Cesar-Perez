@@ -2,8 +2,9 @@
 # Reference: https://www.mathsisfun.com/measure/us-standard-length.html
 # https://en.wikibooks.org/wiki/JavaScript
 
+
 def calculate_feet(miles):
-    feet = miles * 5280    
+    feet = miles * 5280
     return feet
 
 
@@ -13,12 +14,12 @@ def calculate_inches(miles):
 
 
 def calculate_yards(miles):
-    yards = miles * 1760   
+    yards = miles * 1760
     return yards
 
 
 def display_result(yards, feet, inches):
-    print(str(yards) + " yards " + 
+    print(str(yards) + " yards " +
     str(feet) + " feet " + str(inches) + " inches ")
 
 
@@ -28,14 +29,14 @@ def get_miles():
     return miles
 
 
-def main():     
+def main():
     miles = get_miles()
-    
+
     yards = calculate_yards(miles)
     feet = calculate_feet(miles)
     inches = calculate_inches(miles)
-    
+
     display_result(yards, feet, inches)
-   
+
 
 main()
