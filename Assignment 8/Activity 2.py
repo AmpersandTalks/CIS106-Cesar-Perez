@@ -2,9 +2,10 @@
 # and averages out the grade score average
 
 
-def get_average(total_scores, total):
-    average = float(total_scores) / total
-    return average
+def get_value(name):
+    print(" Enter " + name + " value: ")
+    value = int(input())
+    return value
 
 
 def get_scores():
@@ -13,30 +14,28 @@ def get_scores():
     return scores
 
 
-def get_total(scores, total, average):
-    print(" The avergae of all these score is " + str(average))
-
-    
-def get_total_scores(total_scores, scores):
-    sum_scores = total_scores + scores
-    return sum_scores
-
-
-def get_value(name):
-    print(" Enter " + name + " value: ")
-    value = int(input())
-    return value
-
-
-def main():
-    total = get_value("total")
+def process_scores(total):
     total_scores = 0
     for counter in range(1, total + 1, 1):
         scores = get_scores()
-        total_scores = get_total_scores(total_scores, scores)
-        
-    average = get_average(total_scores, total)
-    get_total(scores, total, average)
+        total_scores = total_scores + scores
+    return total_scores
+
+
+def calculate_average(total_scores, total):
+    average = float(total_scores) / total
+    return average
+
+
+def display_average(average):
+    print(" The average of all these score is " + str(average))
+
+
+def main():
+    total = get_value("scores")
+    total_scores = process_scores(total)        
+    average = calculate_average(total_scores, total)
+    display_average(average)
     
     
 main()
