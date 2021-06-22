@@ -1,41 +1,41 @@
 # this program uses a loop to generate a list of multiplication expressions for a given value
 
 
-def getAverage(totalScores, total):
-    average = float(totalScores) / total
+def get_average(total_scores, total):
+    average = float(total_scores) / total
     return average
 
 
-def getScores():
+def get_scores():
     print(" Enter score value: ")
     scores = int(input())
     return scores
 
 
-def getTotal(scores, total, average):
+def get_total(scores, total, average):
     print(" The avergae of all these score is " + str(average))
 
     
-def getTotalScores(totalScores, scores):
-    sumScores = totalScores + scores
-    return sumScores
+def get_total_scores(total_scores, scores):
+    sum_scores = total_scores + scores
+    return sum_scores
 
 
-def getValue(name):
+def get_value(name):
     print(" Enter " + name + " value: ")
     value = int(input())
     return value
 
 
 def main():
-    total = getValue("total")
-    totalScores = 0
+    total = get_value("total")
+    total_scores = 0
     for counter in range(1, total + 1, 1):
-        scores = getScores()
-        totalScores = getTotalScores(totalScores, scores)
+        scores = get_scores()
+        total_scores = get_total_scores(total_scores, scores)
         
-    average = getAverage(totalScores, total)
-    getTotal(scores, total, average)
+    average = get_average(total_scores, total)
+    get_total(scores, total, average)
     
     
 main()
