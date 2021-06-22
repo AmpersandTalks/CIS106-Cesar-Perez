@@ -31,3 +31,8 @@ Assignment 7 introduces the concept of conditions as well as learning how to imp
 ## Assignment 8
 
 Assignment 8 focuses on the For loop function. Assignment 8 is an introduction to Logic loops Activity 1 was not much of a challenge because I was able to use Flowgorithm to plan out my program. Something that I did struggle with was activity 2 I was not able to get the increment to go up correctly. I believe that the For loop is on the more complicated side of loops. I feel this way because the for loops increment through a range of values. As opposed to the other loops that require an expression to be checked to execute what is inside the loop.
+
+
+## Assignment 9
+
+Assignment 9 focuses on th While Loop function
