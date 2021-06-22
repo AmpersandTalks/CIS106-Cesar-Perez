@@ -1,3 +1,5 @@
+# this program uses a loop to generate a list of multiplication expressions for a given value
+
 def getAverage(totalScores, total):
     average = float(totalScores) / total
     
@@ -24,11 +26,13 @@ def getValue(name):
     return value
 
 
-# this program uses a loop to generate a list of multiplication expressions for a given value
-total = getValue("total")
-totalScores = 0
-for counter in range(1, total + 1, 1):
-    scores = getScores()
-    totalScores = getTotalScores(totalScores, scores)
-average = getAverage(totalScores, total)
-getTotal(scores, total, average)
+def main():
+    total = getValue("total")
+    totalScores = 0
+    for counter in range(1, total + 1, 1):
+        scores = getScores()
+        totalScores = getTotalScores(totalScores, scores)
+    average = getAverage(totalScores, total)
+    getTotal(scores, total, average)
+    
+main()
