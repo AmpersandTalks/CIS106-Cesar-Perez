@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Cesar Perez"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-06-22 04:35:57 AM"/>
+        <attribute name="created" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTIyOzA0OjM0OjU3IEFNOzMwNjc="/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTIyOzA0OjM1OjIzIEFNOzI7Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTE3OzAxOjEyOjI3IEFNO0FjdGl2aXR5IDEuZnByZzs3NzUy"/>
+        <attribute name="edited" value="Q2VzYXIgUGVyZXo7Q0VTQVJQRVJFWjsyMDIxLTA2LTIyOzA0OjM1OjU3IEFNOzE7MzE3Ng=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="this program uses a loop to generate a list of multiplication expressions for a given value"/>
+            <declare name="number" type="Integer" array="False" size=""/>
+            <declare name="factor" type="Integer" array="False" size=""/>
+            <declare name="increment" type="Integer" array="False" size=""/>
+            <assign variable="number" expression="GetValue(&quot;number&quot;)"/>
+            <assign variable="factor" expression="GetValue(&quot;factor&quot;)"/>
+            <assign variable="increment" expression="1"/>
+            <call expression="WhileLoop(number, factor, increment)"/>
+        </body>
+    </function>
+    <function name="GetValue" type="Integer" variable="value">
+        <parameters>
+            <parameter name="name" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="value" type="Integer" array="False" size=""/>
+            <output expression="&quot; Enter &quot; &amp; name &amp; &quot; value: &quot;" newline="True"/>
+            <input variable="value"/>
+        </body>
+    </function>
+    <function name="WhileLoop" type="None" variable="">
+        <parameters>
+            <parameter name="number" type="Integer" array="False"/>
+            <parameter name="factor" type="Integer" array="False"/>
+            <parameter name="increment" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <output expression="&quot; While loop multiplication from &quot; &amp; number &amp; &quot; to &quot; &amp; factor &amp; &quot; by &quot; &amp; increment &amp; &quot; : &quot;" newline="True"/>
+            <declare name="product" type="Integer" array="False" size=""/>
+            <assign variable="product" expression="number"/>
+            <while expression="increment &lt;= factor">
+                <assign variable="product" expression="number * increment"/>
+                <output expression="number &amp; &quot; * &quot; &amp; increment &amp; &quot; = &quot; &amp; product" newline="True"/>
+                <assign variable="increment" expression="increment + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
