@@ -1,4 +1,5 @@
-# this program uses a loop to generate a list of multiplication expressions for a given value
+# this program uses a for loop take grade scores from the user
+# and averages out the grade score average
 
 
 def get_average(total_scores, total):
