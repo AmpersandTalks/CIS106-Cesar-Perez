@@ -35,4 +35,4 @@ Assignment 8 focuses on the For loop function. Assignment 8 is an introduction t
 
 ## Assignment 9
 
-Assignment 9 focuses on th While Loop function
+Assignment 9 focuses on the while Loop function. Assignment 9 is a continuation on logic loops but instead of using them for a loop. Both activities were not as hard because of the knowledge from the previous assignments. Something that was different from this assignment and the previous assignment on For loops was the different condition that is required for the loop to keep executing the fields inside the loop. The While loop allows for boolean expressions to be written as a condition for the loop. Something that I did realize to struggle with was getting the loop to loop the conditions the appropriate amount of times. this was due to the fact that the For loop does not require an increment variable to exist. I was able to figure out the error and fixed it immediately 
