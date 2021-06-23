@@ -4,7 +4,6 @@
 def get_value(name): 
     print(" Enter " + name + " value: ")
     value = int(input())
-
     return value
 
 
