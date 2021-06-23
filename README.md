@@ -39,3 +39,4 @@ Assignment 9 focuses on the while Loop function. Assignment 9 is a continuation 
 
 ## Assignment 10
 
+Assignment 10 focuses on the Do loop. Similar to the previous sessions it was initially a bit of a challenge, but knowledge from previous loops helped to understand how the Do Loop works. I decided to go back to the example that was provided to better understand all the loops. This helped me better understand the Do loop better and how it works. I decided to go with working on activity 1 which was similar to activity one in session 8. This helped me visualize and formant the structure for the Do loop. Session 10-second activity was about nested loops. this activity was a bit more difficult due to the fact that there was no example to refer back to. I decided to read and visit the additional resources to help me better visualize the structure for the nested loop.
