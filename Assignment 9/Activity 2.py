@@ -29,7 +29,6 @@ def calculate_average(total_scores, total):
     return average
 
 
-
 def display_average(average):
     print(" The avergae of all these score is " + str(average))
 
