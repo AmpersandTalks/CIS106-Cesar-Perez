@@ -1,4 +1,10 @@
-def doLoop():
+# this program that asks the user to enter grade scores and calculates the average of the entered scores.
+
+def displayAverage(average):
+    print(" The avergae of all these score is " + str(average))
+
+    
+def processScores():
     increment = 0
     sum = 0
     while True:    #This simulates a Do Loop
@@ -9,14 +15,16 @@ def doLoop():
             increment = increment + 1
         if not(score >= 0): break   #Exit loop
     average = float(sum) / increment
-    print(average)
+    return average
 
 def getValue(name):
     print(" Enter " + name + " value: ")
     value = int(input())
-    
     return value
 
-# Main
-# this program that asks the user to enter grade scores and calculates the average of the entered scores.
-doLoop()
+def main():
+    average = processScores()
+    displayAverage(average)
+
+    
+main()
