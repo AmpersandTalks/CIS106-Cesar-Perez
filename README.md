@@ -40,3 +40,7 @@ Assignment 9 focuses on the while Loop function. Assignment 9 is a continuation 
 ## Assignment 10
 
 Assignment 10 focuses on the Do loop. Similar to the previous sessions it was initially a bit of a challenge, but knowledge from previous loops helped to understand how the Do Loop works. I decided to go back to the example that was provided to better understand all the loops. This helped me better understand the Do loop better and how it works. I decided to go with working on activity 1 which was similar to activity one in session 8. This helped me visualize and formant the structure for the Do loop. Session 10-second activity was about nested loops. this activity was a bit more difficult due to the fact that there was no example to refer back to. I decided to read and visit the additional resources to help me better visualize the structure for the nested loop.
+
+## Assignment 11
+
+Assignment 11 focuses on Arrays. This session uses the knowledge from the previous sessions to plan for these assignments. An array is described as a data structure consisting of a collection of elements. Assignment 11 also requires a fixed array and a defined array. I found the different types of arrays a bit confusing but referenced back to the course material for further clarification. Something that I learned from this session was that the index range has to be from 0 to the desired amount that the user would enter. This is s something that is covered in the chapter but can be missed easily when writing the code.
