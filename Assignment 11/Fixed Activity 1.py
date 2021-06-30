@@ -1,5 +1,5 @@
 # This program asks the user for grades and 
-#then calculates the highest, lowest and average of the scores
+# then calculates the highest, lowest and average of the scores
 # Reference:
 # https://www.mathsisfun.com/definitions/average.html
 
