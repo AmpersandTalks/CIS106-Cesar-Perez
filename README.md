@@ -44,3 +44,7 @@ Assignment 10 focuses on the Do loop. Similar to the previous sessions it was in
 ## Assignment 11
 
 Assignment 11 focuses on Arrays. This session uses the knowledge from the previous sessions to plan for these assignments. An array is described as a data structure consisting of a collection of elements. Assignment 11 also requires a fixed array and a defined array. I found the different types of arrays a bit confusing but referenced back to the course material for further clarification. Something that I learned from this session was that the index range has to be from 0 to the desired amount that the user would enter. This is s something that is covered in the chapter but can be missed easily when writing the code.
+
+## Assignment 12
+
+Session 12 is about dynamic arrays. The dynamic array has no static length but it can be extended till the user wants to add an element to the array. This section also described different functions to access the list. Linear search is a method to find an element in the list. This is also known as a sequential search. Max and min is a function to retrieve the maximum and minimum element from the array. We have also learned about the sorting algorithm, which allows sorting arrays in ascending order or descending order. The dynamic array allows us to add and remove an element from any index of the list. this session was a bit easier as the last session had introduced the foundations of arrays.
