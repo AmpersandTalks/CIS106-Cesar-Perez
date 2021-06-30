@@ -12,7 +12,7 @@ def getValue(name):
 def calculateDayOfWeek(year, month, day):
     if month < 3:
         month += 12
-        year -= 2
+        year -= 1
     
     
     j = round(year / 100)
