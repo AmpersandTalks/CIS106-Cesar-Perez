@@ -6,7 +6,7 @@
 
 def get_average(grades, scores):
     total = 0
-    for increment in range(1, len(grades)):
+    for increment in range(0, len(grades)):
         total = total + grades[increment]
     average = total / scores
     return average
