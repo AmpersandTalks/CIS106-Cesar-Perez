@@ -1,4 +1,4 @@
-# This activity FInds the day of the birthday the person inputs. 
+# This activity Finds the day of the birthday the person inputs. 
 # Refrences: https://en.wikipedia.org/wiki/Zeller%27s_congruence
 # https://www.geeksforgeeks.org/zellers-congruence-find-day-date/
 
@@ -12,7 +12,7 @@ def getValue(name):
 def calculateDayOfWeek(year, month, day):
     if month < 3:
         month += 12
-        year -= 1
+        year -= 2
     
     
     j = round(year / 100)
