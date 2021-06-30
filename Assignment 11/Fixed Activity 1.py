@@ -5,7 +5,7 @@
 
 def get_average(grades, scores):
     total = 0
-    for increment in range(0, scores, 1):
+    for increment in range(1, len(grades)):
         total = total + grades[increment]
     average = total / scores
     return average
@@ -18,16 +18,16 @@ def get_grades():
 
 
 def get_max(grades, scores):
-    max = [0]
-    for increment in range(0, scores, 1):
+    max = grades[0]
+    for increment in range(1, len(grades)):
         if max < grades[increment]:
             max = grades[increment]
     return max
 
 
 def get_min(grades, scores):
-    min = grades[1]
-    for increment in range(0, scores, 1):
+    min = grades[0]
+    for increment in range(1, len(grades)):
         if min > grades[increment]:
             min = grades[increment]
     return min
