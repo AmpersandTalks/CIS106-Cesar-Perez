@@ -11,11 +11,11 @@ def get_answer(maximum_number, minimum_number):
             guess = get_guess(guess, middle_number)
             minimum_number = middle_number
             middle_number = get_midddle_number(minimum_number, maximum_number)
-        elif choice == 2:
+        if choice == 2:
             guess = get_guess(guess, middle_number)
             maximum_number = middle_number
             middle_number = get_midddle_number(minimum_number, maximum_number)
-        elif choice == 3:
+        if choice == 3:
             guess = get_guess(guess, middle_number)
             break
     return guess
