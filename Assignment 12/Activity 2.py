@@ -22,7 +22,7 @@ def get_answer(maximum_number, minimum_number):
 
 
 def get_midddle_number(minimum_number, maximum_number):
-    middle_number = int((minimum_number + maximum_number)/2)
+    middle_number = int((minimum_number + maximum_number) / 2)
     return middle_number
 
 
