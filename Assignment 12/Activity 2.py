@@ -7,15 +7,15 @@ def get_answer(maximum_number, minimum_number):
     middle_number = get_midddle_number(minimum_number, maximum_number)
     while True:
         choice = get_choice(middle_number)
-        if choice == 1:
+        if choice == 'l':
             guess = get_guess(guess, middle_number)
             minimum_number = middle_number
             middle_number = get_midddle_number(minimum_number, maximum_number)
-        if choice == 2:
+        elif choice == 'h':
             guess = get_guess(guess, middle_number)
             maximum_number = middle_number
             middle_number = get_midddle_number(minimum_number, maximum_number)
-        if choice == 3:
+        elif choice == 'e':
             guess = get_guess(guess, middle_number)
             break
     return guess
@@ -32,10 +32,10 @@ def get_guess(guess, new_guess):
 
 
 def get_choice(middle_number):
-    print(" Enter '1' if the number is less than: " + str(middle_number))
-    print(" Enter '2' if the number is greater than :" + str(middle_number))
-    print(" Enter '3' if the number is equal to: " + str(middle_number))
-    choice = int(input())
+    print(" Enter 'l' if the number is lower than: " + str(middle_number))
+    print(" Enter 'h' if the number is higher than :" + str(middle_number))
+    print(" Enter 'e' if the number is equal to: " + str(middle_number))
+    choice = str(input())
     return choice
 
 
