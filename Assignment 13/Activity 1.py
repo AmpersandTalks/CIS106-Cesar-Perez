@@ -39,7 +39,7 @@ def get_last_name(name_list):
 
 
 def display_output(first_name, last_name):
-    print(last_name + ", " + first_name[0] + ". ")
+    print(last_name + ", " + first_name[0] + ".")
 
 
 def main():
