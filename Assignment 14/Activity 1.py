@@ -1,7 +1,6 @@
 # This program displays maximum, minimum, and average scores 
 # based on input file 'scores.txt'.
 
-
 def check_file(filename):
     try:
         file = open(filename, "r")
@@ -24,27 +23,26 @@ def read_file(filename):
 
 def get_score(file_data):
     score = []
-    i = 1
-    while i < len(file_data):
-        score.append(
-            int(file_data[i][file_data[i].find(",") + 1: len(file_data[i])]))
-        i = i + 1
+    increment = 1
+    while increment < len(file_data):
+        score.append(int(file_data[increment][file_data[increment].find(",") + 1: len(file_data[increment])]))
+        increment = increment + 1
     return score
 
 
 def get_name(file_data):
     name = []
-    i = 1
-    while i < len(file_data):
-        name.append(file_data[i][0:file_data[i].find(",")])
-        i = i + 1
+    increment = 1
+    while increment < len(file_data):
+        name.append(file_data[increment][0:file_data[increment].find(",")])
+        increment = increment + 1
     return name
 
 
 def get_average(score):
     total_score = 0
-    for i in range(0, len(score), 1):
-        total_score = total_score + score[i]
+    for increment in range(0, len(score), 1):
+        total_score = total_score + score[increment]
 
     average = float(total_score / len(score))
     return average
@@ -52,26 +50,22 @@ def get_average(score):
 
 def display_output(file_data):
     print("Content of File :")
-    for i in range(0, len(file_data), 1):
-        print(file_data[i])
+    for increment in range(0, len(file_data), 1):
+        print(file_data[increment])
 
 
 def display_maximum(name, score, maximum_score):
     print("Maximum Score Result board")
-    for i in range(0, len(score) - 1, 1):
-        if(score[i] == maximum_score):
-            print(
-                "Maximum Score is : " + 
-                str(maximum_score) + " , achieve by  " + name[i])
+    for increment in range(0, len(score) - 1, 1):
+        if(score[increment] == maximum_score):
+            print( "Maximum Score is : " + str(maximum_score) + " , achieve by  " + name[increment])
 
 
 def display_minimum(name, score, minimum_score):
     print("Minimum Score Result board")
-    for i in range(0, len(score) - 1, 1):
-        if(score[i] == minimum_score):
-            print(
-                "Manimum Score is : " + 
-                str(minimum_score) + " , achieve by  " + name[i])
+    for increment in range(0, len(score) - 1, 1):
+        if(score[increment] == minimum_score):
+            print("Manimum Score is : " + str(minimum_score) + " , achieve by  " + name[increment])
 
 
 def display_average(average):
