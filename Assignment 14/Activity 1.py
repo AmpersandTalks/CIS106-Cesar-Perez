@@ -25,8 +25,8 @@ def get_score(file_data):
     score = []
     count = 1
     while count < len(file_data):
-        score.append(int(file_data[count][file_data[count].find(",") 
-        + 1: len(file_data[count])]))
+        score.append(int(file_data[count]
+        [file_data[count].find(",") + 1: len(file_data[count])]))
         count = count + 1
     return score
 
