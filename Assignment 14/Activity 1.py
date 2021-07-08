@@ -26,7 +26,9 @@ def get_score(file_data):
     score = []
     i = 1
     while i < len(file_data):
-        score.append(int(file_data[i][file_data[i].find(",")+1: len(file_data[i])]))
+        score.append(
+            int(file_data[i][file_data[i].find(",") + 1: len(file_data[i])])
+            )
         i = i + 1
     return score
 
@@ -59,14 +61,20 @@ def display_maximum(name, score, maximum_score):
     print("Maximum Score Result board")
     for i in range(0, len(score) - 1, 1):
         if(score[i] == maximum_score):
-            print("Maximum Score is : " + str(maximum_score) + " , achieve by  " + name[i])
+            print(
+                "Maximum Score is : " + 
+                str(maximum_score) + " , achieve by  " + name[i]
+                )
 
 
 def display_minimum(name, score, minimum_score):
     print("Minimum Score Result board")
     for i in range(0, len(score) - 1, 1):
         if(score[i] == minimum_score):
-            print("Manimum Score is : " + str(minimum_score) + " , achieve by  " + name[i])
+            print(
+                "Manimum Score is : " + 
+                str(minimum_score) + " , achieve by  " + name[i]
+                )
 
 
 def display_average(average):
