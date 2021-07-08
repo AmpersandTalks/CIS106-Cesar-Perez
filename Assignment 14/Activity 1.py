@@ -23,26 +23,26 @@ def read_file(filename):
 
 def get_score(file_data):
     score = []
-    increment = 1
-    while increment < len(file_data):
-        score.append(int(file_data[increment][file_data[increment].find(",") + 1: len(file_data[increment])]))
-        increment = increment + 1
+    count = 1
+    while count < len(file_data):
+        score.append(int(file_data[count][file_data[count].find(",") + 1: len(file_data[count])]))
+        count = count + 1
     return score
 
 
 def get_name(file_data):
     name = []
-    increment = 1
-    while increment < len(file_data):
-        name.append(file_data[increment][0:file_data[increment].find(",")])
-        increment = increment + 1
+    count = 1
+    while count < len(file_data):
+        name.append(file_data[count][0:file_data[count].find(",")])
+        count = count + 1
     return name
 
 
 def get_average(score):
     total_score = 0
-    for increment in range(0, len(score), 1):
-        total_score = total_score + score[increment]
+    for count in range(0, len(score), 1):
+        total_score = total_score + score[count]
 
     average = float(total_score / len(score))
     return average
@@ -50,22 +50,22 @@ def get_average(score):
 
 def display_output(file_data):
     print("Content of File :")
-    for increment in range(0, len(file_data), 1):
-        print(file_data[increment])
+    for count in range(0, len(file_data), 1):
+        print(file_data[count])
 
 
 def display_maximum(name, score, maximum_score):
     print("Maximum Score Result board")
-    for increment in range(0, len(score) - 1, 1):
-        if(score[increment] == maximum_score):
-            print( "Maximum Score is : " + str(maximum_score) + " , achieve by  " + name[increment])
+    for count in range(0, len(score) - 1, 1):
+        if(score[count] == maximum_score):
+            print("Maximum Score is : " + str(maximum_score) + " , achieve by  " + name[count])
 
 
 def display_minimum(name, score, minimum_score):
     print("Minimum Score Result board")
-    for increment in range(0, len(score) - 1, 1):
-        if(score[increment] == minimum_score):
-            print("Manimum Score is : " + str(minimum_score) + " , achieve by  " + name[increment])
+    for count in range(0, len(score) - 1, 1):
+        if(score[count] == minimum_score):
+            print("Manimum Score is : " + str(minimum_score) + " , achieve by  " + name[count])
 
 
 def display_average(average):
