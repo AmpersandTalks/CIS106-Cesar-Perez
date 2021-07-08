@@ -58,14 +58,16 @@ def display_maximum(name, score, maximum_score):
     print("Maximum Score Result board")
     for count in range(0, len(score) - 1, 1):
         if(score[count] == maximum_score):
-            print("Maximum Score is : " + str(maximum_score) + " , achieve by  " + name[count])
+            print("Maximum Score is : " + str(maximum_score) + 
+            " , achieve by  " + name[count])
 
 
 def display_minimum(name, score, minimum_score):
     print("Minimum Score Result board")
     for count in range(0, len(score) - 1, 1):
         if(score[count] == minimum_score):
-            print("Manimum Score is : " + str(minimum_score) + " , achieve by  " + name[count])
+            print("Manimum Score is : " + str(minimum_score) + 
+            " , achieve by  " + name[count])
 
 
 def display_average(average):
