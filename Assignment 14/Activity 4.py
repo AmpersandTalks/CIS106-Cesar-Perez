@@ -32,7 +32,7 @@ def get_name(name):
 
 
 def get_address(address):
-    separate_address = address.split("\n")
+    separate_address = address.split("\n\n")
     address_comma = get_name(separate_address[0]) + ","
     address_comma = address_comma + separate_address[1] + ","
     state_split = separate_address[len(separate_address) - 1].split(",")
