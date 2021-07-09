@@ -40,7 +40,7 @@ def get_address(address):
     state_split[1] = state_split[1].strip()
     state_split = state_split[1].split()
     address_comma = address_comma + state_split[0] + "," + state_split[1]
-    return address_comma % 4
+    return address_comma
 
 
 def main():
