@@ -44,7 +44,7 @@ def get_address(address):
 
 
 def main():
-    file_name = "address.txt"
+    file_name = "addresses.txt"
     file_status = check_file(file_name)
     if file_status == "Success":
         file_data = read_file(file_name)
