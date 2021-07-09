@@ -18,7 +18,7 @@ def read_file(file_name):
     return file_data
 
 
-def display_data(file_data):
+def print_data(file_data):
     address = file_data.split("\n")
     for interger in range(0, len(address), 1):
         address_comma = get_address(address[interger])
@@ -48,7 +48,7 @@ def main():
     file_status = check_file(file_name)
     if file_status == "Success":
         file_data = read_file(file_name)
-        display_data(file_data)
+        print_data(file_data)
     else:
         print("File does not exist , first create the file ")
 
