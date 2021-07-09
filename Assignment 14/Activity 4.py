@@ -19,7 +19,7 @@ def read_file(file_name):
 
 
 def display_data(file_data):
-    address = file_data.split("\n\n")
+    address = file_data.split("\n")
     for interger in range(0, len(address), 1):
         address_comma = get_address(address[interger])
         print(address_comma)
