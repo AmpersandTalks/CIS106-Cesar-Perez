@@ -204,8 +204,7 @@ def test_final_project_no_records():
 def test_final_project_missing_fields():
     url = "https://www.w3schools.com/xml/" + FILENAME
     text = urllib.request.urlopen(url).read().decode()
-    # text = text.replace("    <ARTIST>Bob Dylan</ARTIST>\r\n", "")
-    text = text.replace("    <name>French Toast</name>\r\n", "")
+    text = re.sub(r" +<name>French Toast<\/name>\r?\n?", "", text)
     with open(FILENAME, "w") as file:
         file.write(text)
 
