@@ -14,60 +14,60 @@ def get_information():
         exit(1)
     return main_data
 
-def get_array(record):
+def get_array(record, tag):
     get_record = record.split("\n")
      data = "None"
     try:
-        for increment in range(0,len(get_record),1):
+        for increment in range(0,len(get_record), 1):
             if(get_record[increment].find(tag) > 0):
                 start = get_record[increment].find(">") + 1
-                end  = get_record[increment].find(tag)
+                end = get_record[increment].find(tag)
                 data = get_record[increment][start:end]
     except:
         data = "None"
     return data
   
-def get_data(main_data,tag):
+def get_data(main_data, tag):
     year_data = []
-     for increment in range(0,len(main_data)-1,1):
-        year_data.append(get_array(main_data[i],tag))
+     for increment in range(0, len(main_data)-1, 1):
+        year_data.append(get_array(main_data[increment], tag))
     return year_data
 
 def check_price(price):
-    for i in range(0, len(price),1):
+    for increment in range(0, len(price), 1):
         try:
-            price[i] = float(price[i])
+            price[increment] = float(price[increment])
         except:
-            price[i] = 0.00
+            price[increment] = 0.00
     return price
   
-def display_output(title_data,artist_data,country_data,company_data,price_data,year_data):
-    for increment in range (0, len(title_data),1):
-        print(f"{title_data[i]} - {artist_data[i]} - {country_data[i]} - {company_data[i]} - $ {price_data[i]} - {year_data[i]}")  
+def display_output(title_data, artist_data, country_data, company_data, price_data, year_data):
+    for increment in range (0, len(title_data), 1):
+        print(f"{title_data[increment]} - {artist_data[increment]} - {country_data[increment]} - {company_data[increment]} - $ {price_data[increment]} - {year_data[increment]}")  
  
 def get_data_average(price):
     total = 0
-    for increment in range(0,len(price),1):
+    for increment in range(0, len(price), 1):
         total = total + price[increment]
     average = total / len(price)
     return average
 
-def display_output_average(record,average):
+def display_output_average(record, average):
     print(f" Total Records Available in Catalog : {record}")
     print(f" Average price of items in Catalog  : {average :.2f}")
 
 def main():
     main_data = fetch_info()
-    title_data = get_data(main_data,"</TITLE>")
-    artist_data = get_data(main_data,"</ARTIST>")
-    country_data = get_data(main_data,"</COUNTRY>")
-    company_data = get_data(main_data,"</COMPANY>")
-    price_data = get_data(main_data,"</PRICE>")
+    title_data = get_data(main_data, "</TITLE>")
+    artist_data = get_data(main_data, "</ARTIST>")
+    country_data = get_data(main_data, "</COUNTRY>")
+    company_data = get_data(main_data, "</COMPANY>")
+    price_data = get_data(main_data, "</PRICE>")
     price_data = check_price(price_data)
-    year_data = get_data(main_data,"</YEAR>")
-    display_output(title_data,artist_data,country_data,company_data,price_data,year_data)
+    year_data = get_data(main_data, "</YEAR>")
+    print_output(title_data, artist_data, country_data, company_data, price_data, year_data)
     average_data = get_data_average(price_data)
-   display_output_average(len(title_data),average_data
+    print_output_average(len(title_data), average_data)
     
    
 main()
