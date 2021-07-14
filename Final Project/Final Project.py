@@ -35,15 +35,15 @@ def get_artist_array(record):
     data = ""
     for increment in range(0,len(get_record),1):
         if(get_record[increment].find("ARTIST") > 0):
-            start = get_record[i].find(">") + 1
-            end  = get_record[i].find("</ARTIST>")
-            data = get_record[i][start:end]
+            start = get_record[increment].find(">") + 1
+            end  = get_record[increment].find("</ARTIST>")
+            data = get_record[increment][start:end]
     return data
 
 def get_data_artist(main_data):
     artist_data = []
     for increment in range(1,len(main_data),1):
-        artist_data.append(get_artist_array(main_data[i]))
+        artist_data.append(get_artist_array(main_data[increment]))
     print(artist_data)
     return artist_data
 
