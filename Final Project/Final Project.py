@@ -7,7 +7,13 @@ import urllib.request
 
 def get_information():
   cd_catalog = "https://www.w3schools.com/xml/cd_catalog.xml"
-  return 
+  try:
+        cd_data = urllib.request.urlopen(cd_catalog).read().decode()
+        main_data = cd_data.split("<TITLE>")
+  except Exception as exception:
+        print("Try to connect internet or web page not available")
+        exit(1)
+    return main_data
 
 
 catalog_data = []
@@ -60,3 +66,12 @@ for increment in range(0,len(catalog_data)-1,1):
     if check >= 0:
         year_data.append(catalog_data[increment])
         print(catalog_data[increment])
+
+        
+def main():
+    main_data = fetch_info()
+    print(main_data)
+
+
+
+main()
