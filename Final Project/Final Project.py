@@ -46,7 +46,6 @@ def get_data_artist(main_data):
         artist_data.append(get_artist_array(main_data[increment]))
     return artist_data
 
-
 def get_country_array(record):
     get_record = record.split("\n")
     data = "Not Available"
@@ -88,6 +87,10 @@ def get_price_array(record):
             start = get_record[increment].find(">") + 1
             end  = get_record[increment].find("</PRICE>")
             data = get_record[increment][start:end]
+            try:
+                data =  float(data)
+            except :
+                data = 0.00
     return data
 
 def get_data_price(main_data):
@@ -114,31 +117,20 @@ def get_data_year(main_data):
     return year_data
   
 def display_output(title_data,artist_data,country_data,company_data,price_data,year_data):
-    for i in range (0, len(title_data),1):
+    for increment in range (0, len(title_data),1):
         print(f"{title_data[i]} - {artist_data[i]} - {country_data[i]} - {company_data[i]} - $ {price_data[i]} - {year_data[i]}")  
-  
-'''catalog_data = []
-for line in cd_data.split("\n"):
-    catalog_data.append(line)
-   
+ 
+def get_data_average(price):
+    total = 0
+    for increment in range(0,len(price),1):
+        total = total + price[increment]
+    average = total / len(price)
+    return average
 
-title_data = []
-artist_data= []
-company_data = []
-country_data = []
-price_data = []
-year_data = []
+def print_output_average(record,average):
+    print(f" Total Records Available in Catalog : {record}")
+    print(f" Average price of items in Catalog  : {average :.2f}")
 
-
-for invrement in range(0,len(catalog_data)-1,1):
-    check = catalog_data[increment].find("TITLE")
-    if check >= 0:
-        title_data.append(catalog_data[increment])
-        print(catalog_data[increment])'''
-
-
-
-        
 def main():
     main_data = fetch_info()
     title_data = get_data_title(main_data)
@@ -147,6 +139,7 @@ def main():
     company_data = get_data_company(main_data)
     price_data = get_data_price(main_data)
     year_data = get_data_year(main_data)
+    average_data = get_data_average(price_data)
     display_output(title_data,artist_data,country_data,company_data,price_data,year_data)
     
 main()
