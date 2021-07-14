@@ -1,4 +1,3 @@
-  
 # This program gets data from a XML file from online 
 # and display in requested way, it also check data validation.
 
@@ -15,106 +14,32 @@ def get_information():
         exit(1)
     return main_data
 
-def get_title_array(record):
+def get_array(record):
     get_record = record.split("\n")
-    data = "Not Available"
-    for increment in range(0,len(get_record),1):
-        if(get_record[increment].find("TITLE") > 0):
-            end  = get_record[increment].find("</TITLE>")
-            data = get_record[increment][:end]
+     data = "None"
+    try:
+        for increment in range(0,len(get_record),1):
+            if(get_record[increment].find(tag) > 0):
+                start = get_record[increment].find(">") + 1
+                end  = get_record[increment].find(tag)
+                data = get_record[increment][start:end]
+    except:
+        data = "None"
     return data
-
-def get_data_title(main_data):
-    title_data = []
-    for increment in range(1,len(main_data),1):
-        title_data.append(get_title_array(main_data[increment]))
-    return title_data
   
-def get_artist_array(record):
-    get_record = record.split("\n")
-    data = "Not Available"
-    for increment in range(0,len(get_record),1):
-        if(get_record[increment].find("ARTIST") > 0):
-            start = get_record[increment].find(">") + 1
-            end  = get_record[increment].find("</ARTIST>")
-            data = get_record[increment][start:end]
-    return data
-
-def get_data_artist(main_data):
-    artist_data = []
-    for increment in range(1,len(main_data),1):
-        artist_data.append(get_artist_array(main_data[increment]))
-    return artist_data
-
-def get_country_array(record):
-    get_record = record.split("\n")
-    data = "Not Available"
-    for increment in range(0,len(get_record),1):
-        if(get_record[increment].find("COUNTRY") > 0):
-            start = get_record[increment].find(">") + 1
-            end  = get_record[increment].find("</COUNTRY>")
-            data = get_record[increment][start:end]
-    return data
-
-def get_data_country(main_data):
-    country_data = []
-    for increment in range(1,len(main_data),1):
-        country_data.append(get_country_array(main_data[increment]))
-    print(country_data)
-    return country_data
-
-def get_company_array(record):
-    get_record = record.split("\n")
-    data = "Not Available"
-    for increment in range(0,len(get_record),1):
-        if(get_record[increment].find("COMPANY") > 0):
-            start = get_record[increment].find(">") + 1
-            end  = get_record[increment].find("</COMPANY>")
-            data = get_record[increment][start:end]
-    return data
-
-def get_data_company(main_data):
-    company_data = []
-    for increment in range(1,len(main_data),1):
-        company_data.append(get_company_array(main_data[increment]))
-    return company_data
-
-def get_price_array(record):
-    get_record = record.split("\n")
-    data = "0.00"
-    for increment in range(0,len(get_record),1):
-        if(get_record[increment].find("PRICE") > 0):
-            start = get_record[increment].find(">") + 1
-            end  = get_record[increment].find("</PRICE>")
-            data = get_record[increment][start:end]
-            try:
-                data =  float(data)
-            except :
-                data = 0.00
-    return data
-
-def get_data_price(main_data):
-    price_data = []
-    for increment in range(1,len(main_data),1):
-        price_data.append(get_price_array(main_data[increment]))
-    return price_data
-
-
-def get_year_array(record):
-    get_record = record.split("\n")
-    data = "Not Available"
-    for i in range(0,len(get_record),1):
-        if(get_record[increment].find("YEAR") > 0):
-            start = get_record[increment].find(">") + 1
-            end  = get_record[increment].find("</YEAR>")
-            data = get_record[increment][start:end]
-    return data
-
-def get_data_year(main_data):
+def get_data(main_data,tag):
     year_data = []
-    for increment in range(1,len(main_data),1):
-        year_data.append(get_year_array(main_data[i]))
+     for increment in range(0,len(main_data)-1,1):
+        year_data.append(get_array(main_data[i],tag))
     return year_data
+
+def check_price(price):
+    for i in range(0, len(price),1):
+        try:
+            price[i] = float(price[i])
+        except:
+            price[i] = 0.00
+    return price
   
 def display_output(title_data,artist_data,country_data,company_data,price_data,year_data):
     for increment in range (0, len(title_data),1):
@@ -127,19 +52,23 @@ def get_data_average(price):
     average = total / len(price)
     return average
 
-def print_output_average(record,average):
+def display_output_average(record,average):
     print(f" Total Records Available in Catalog : {record}")
     print(f" Average price of items in Catalog  : {average :.2f}")
 
 def main():
     main_data = fetch_info()
-    title_data = get_data_title(main_data)
-    artist_data = get_data_artist(main_data)
-    country_data = get_data_country(main_data)
-    company_data = get_data_company(main_data)
-    price_data = get_data_price(main_data)
-    year_data = get_data_year(main_data)
-    average_data = get_data_average(price_data)
+    title_data = get_data(main_data,"</TITLE>")
+    artist_data = get_data(main_data,"</ARTIST>")
+    country_data = get_data(main_data,"</COUNTRY>")
+    company_data = get_data(main_data,"</COMPANY>")
+    price_data = get_data(main_data,"</PRICE>")
+    price_data = check_price(price_data)
+    year_data = get_data(main_data,"</YEAR>")
     display_output(title_data,artist_data,country_data,company_data,price_data,year_data)
+    average_data = get_data_average(price_data)
+   display_output_average(len(title_data),average_data
     
+   
 main()
+
