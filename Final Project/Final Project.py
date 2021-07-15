@@ -8,7 +8,7 @@ def get_information():
     breakfast_menu = "https://www.w3schools.com/xml/simple.xml"
     try:
         breakfast_menu = urllib.request.urlopen(breakfast_menu).read().decode()
-        main_data = breakfast_menu.split("</NAME>")
+        main_data = breakfast_menu.split("</food>")
     except Exception as exception:
         print("Try to connect internet or web page not available")
         exit(1)
@@ -83,10 +83,10 @@ def display_output_average(record, average):
 
 def main():
     main_data = get_information()
-    name_data = get_data(main_data, "</NAME>")
-    description_data = get_data(main_data, "</DESCRIPTION>")
-    calories_data = get_data(main_data, "</CALORIES>")
-    price_data = get_data(main_data, "</PRICE>")
+    name_data = get_data(main_data, "</name>")
+    description_data = get_data(main_data, "</description>")
+    calories_data = get_data(main_data, "</calories>")
+    price_data = get_data(main_data, "</price>")
     price_data = check_price(price_data)
     display_output(name_data, price_data, description_data, calories_data )
     average_data = get_data_average(price_data)
