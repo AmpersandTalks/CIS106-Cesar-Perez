@@ -14,7 +14,6 @@ def get_information():
         exit(1)
     return main_data
 
-
 def get_array(record, tag):
     get_record = record.split("\n")
     data = "None"
@@ -54,6 +53,10 @@ def display_output(name_data, price_data, description_data, calories_data):
         print("Invalid data: missing names")
         return
 
+    if len(price_data) < length:
+        print("Invalid data: missing prices")
+        return
+
     if len(description_data) < length:
         print("Invalid data: missing descriptions")
         return
@@ -62,13 +65,8 @@ def display_output(name_data, price_data, description_data, calories_data):
         print("Invalid data: missing calories")
         return
 
-    if len(price_data) < length:
-        print("Invalid data: missing prices")
-        return
-
     for increment in range(len(name_data)):
         print(f"{name_data[increment]} - {description_data[increment]} - {calories_data[increment]} - $ {price_data[increment]}")
-
 
 def get_data_average(price):
     total = 0
@@ -84,11 +82,11 @@ def display_output_average(record, average):
 def main():
     main_data = get_information()
     name_data = get_data(main_data, "</name>")
-    description_data = get_data(main_data, "</description>")
-    calories_data = get_data(main_data, "</calories>")
     price_data = get_data(main_data, "</price>")
     price_data = check_price(price_data)
-    display_output(name_data, price_data, description_data, calories_data )
+    description_data = get_data(main_data, "</description>")
+    calories_data = get_data(main_data, "</calories>")
+    display_output(name_data, price_data, description_data, calories_data)
     average_data = get_data_average(price_data)
     display_output_average(len(name_data), average_data)
 
